@@ -4,9 +4,13 @@
 import LocaleSelect from "@/components/i18n/LocaleSelect.astro";
 import { useTranslations, type Lang } from "@/i18n";
 import { getRelativeLocaleUrl } from "astro:i18n";
+// import "@/styles/global.css";
 const t = useTranslations(Astro.currentLocale as Lang);
 
 const locale = Astro.currentLocale as Lang;
+
+import logoImg from "@/assets/ico.png";
+import { Image } from "astro:assets";
 
 const isActive = (path: string) =>
   getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
@@ -14,48 +18,64 @@ const isActive = (path: string) =>
 
 <header class="l-header">
   <h1 dir="ltr">
-      <a href={getRelativeLocaleUrl(locale, "/")} aria-label="Home" class="flex items-center">
-        <span class="flex items-center gap-2"></span>
-          <div class="relative w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
-            <div class="absolute w-4 h-4 bg-white rounded-full top-2 left-2"></div>
-            <div class="absolute w-4 h-4 bg-white rounded-full top-2 right-2"></div>
-            <div class="absolute w-5 h-2 bg-white rounded-full bottom-2 left-1/2 transform -translate-x-1/2"></div>
-          </div>
-          <span class="text-yellow-500 font-bold text-xl group-hover:text-yellow-600 transition-colors">
-            Happy Ghast
-          </span>
+    <a href={getRelativeLocaleUrl(locale, "/")} aria-label="Home">
+      <div class=" flex items-center flex-row">
+        <span class="block w-8 h-8 mr-2">
+          <Image
+            src={logoImg}
+            alt="Happy Ghast"
+            loading="lazy"
+            decoding="async"
+            class="rounded-xl shadow-md"
+          />
         </span>
-      </a>
+
+        <span class="block text-2xl font-bold">Happy Ghast</span>
+      </div>
+    </a>
   </h1>
+  <h2 class="text-gray-400 text-sm">
+    {
+      t({
+        "zh-cn": "提供所有我的世界Happy Ghast的相关资讯",
+        en: "Providing all Minecraft Happy Ghast related information",
+        es: "Proporcionando toda la información relacionada con Happy Ghast de Minecraft",
+        fr: "Fournissant toutes les informations sur Happy Ghast de Minecraft",
+        de: "Bietet alle Informationen zu Minecraft Happy Ghast",
+        ja: "マインクラフトのHappy Ghastに関するすべての情報を提供",
+        ru: "Предоставление всей информации о Happy Ghast из Minecraft",
+        pt: "Fornecendo todas as informações relacionadas ao Happy Ghast do Minecraft",
+        ar: "توفير جميع المعلومات المتعلقة بـ Happy Ghast من ماينكرافت",
+        ko: "마인크래프트 Happy Ghast 관련 모든 정보 제공",
+      })
+    }
+  </h2>
 
   <LocaleSelect />
 
   <nav class="l-content">
     <ul>
-
-      <li>
+      <!-- <li>
         <a
           href={getRelativeLocaleUrl(locale, "/")}
           class={isActive("/") ? "active" : null}
         >
           {
             t({
-                ja: "ホーム",
-                en: "HOME",
-                "zh-cn": "首页",
-                es: "INICIO",
-                fr: "ACCUEIL",
-                de: "STARTSEITE",
-                ru: "ГЛАВНАЯ",
-                pt: "INÍCIO",
-                ar: "الرئيسية",
-                ko: "홈"
-
+              ja: "ホーム",
+              en: "HOME",
+              "zh-cn": "首页",
+              es: "INICIO",
+              fr: "ACCUEIL",
+              de: "STARTSEITE",
+              ru: "ГЛАВНАЯ",
+              pt: "INÍCIO",
+              ar: "الرئيسية",
+              ko: "홈",
             })
           }
         </a>
-      </li>
- 
+      </li> -->
 
       <!-- <li>
         <a
@@ -66,7 +86,7 @@ const isActive = (path: string) =>
         </a>
       </li> -->
 
-      <li>
+      <!-- <li>
         <a
           href="https://github.com/psephopaiktes/astro-i18n-starter"
           target="_blank"
@@ -74,7 +94,7 @@ const isActive = (path: string) =>
           GitHub
           <span class="material-icons-sharp dir">open_in_new</span>
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
 </header>

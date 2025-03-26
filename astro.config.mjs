@@ -3,6 +3,8 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import { DEFAULT_LOCALE_SETTING, LOCALES_SETTING } from './src/locales';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://astro.build/config
 export default defineConfig({
   // Set your site's URL
@@ -30,4 +32,8 @@ export default defineConfig({
       },
     })
   ],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

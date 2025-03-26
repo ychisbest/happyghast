@@ -10,10 +10,813 @@ export const getStaticPaths = () =>
   Object.keys(LOCALES).map((lang) => ({
     params: { lang },
   }));
+
+// Import images - placeholders for now, replace with actual images
+import happyGhastHero from "@/assets/happy-ghast-hero.png";
+import driedGhastImg from "@/assets/dried-ghast.png";
+import ghastlingImg from "@/assets/ghastling.png";
+import happyGhastImg from "@/assets/happy-ghast.png";
+import harnessImg from "@/assets/ghast-harness.png";
 ---
 
 <Layout>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>{t({
+          "zh-cn": "快乐恶魂（Happy Ghast)",
+          "en": "Happy Ghast",
+          "es": "Fantasma Feliz (Happy Ghast)",
+          "fr": "Fantôme Joyeux (Happy Ghast)",
+          "de": "Fröhlicher Ghast (Happy Ghast)",
+          "ja": "ハッピーガスト (Happy Ghast)",
+          "ru": "Счастливый Гаст (Happy Ghast)",
+          "pt": "Fantasma Feliz (Happy Ghast)",
+          "ar": "شبح سعيد (Happy Ghast)",
+          "ko": "행복한 가스트 (Happy Ghast)"
+        })}</h1>
+        <p class="tagline">{t({
+          "zh-cn": "《我的世界》2025年第二游戏更新的全新生物",
+          "en": "A brand-new mob in Minecraft’s second game update of 2025",
+          "es": "Una nueva criatura en la segunda actualización de Minecraft de 2025",
+          "fr": "Une nouvelle créature dans la deuxième mise à jour de Minecraft 2025",
+          "de": "Ein neuer Mob im zweiten Spiel-Update von Minecraft 2025",
+          "ja": "『マインクラフト』2025年第2ゲームアップデートの全新モブ",
+          "ru": "Новый моб во втором игровом обновлении Minecraft 2025 года",
+          "pt": "Um novo mob na segunda atualização de jogo do Minecraft de 2025",
+          "ar": "كائن جديد في التحديث الثاني للعبة ماينكرافت 2025",
+          "ko": "마인크래프트 2025년 두 번째 게임 업데이트의 새로운 몹"
+        })}</p>
+        <div class="hero-image">
+          <Image 
+            src={happyGhastHero} 
+            alt="快乐恶魂在天空中飞翔，载着玩家探索《我的世界》" 
+            width={800} 
+            height={450}
+            quality={90}
+          />
+        </div>
+        <a href="#how-to-get" class="start">{t({
+          "zh-cn": "了解如何获得快乐恶魂",
+          "en": "Learn how to get the Happy Ghast",
+          "es": "Aprende cómo obtener el Fantasma Feliz",
+          "fr": "Découvrez comment obtenir le Fantôme Joyeux",
+          "de": "Erfahren Sie, wie Sie den Fröhlichen Ghast bekommen",
+          "ja": "ハッピーガストの入手方法を学ぶ",
+          "ru": "Узнайте, как получить Счастливого Гаста",
+          "pt": "Saiba como obter o Fantasma Feliz",
+          "ar": "تعرف على كيفية الحصول على الشبح السعيد",
+          "ko": "행복한 가스트를 얻는 방법을 알아보세요"
+        })}</a>
+      </div>
+    </section>
 
+    <section id="summary" class="section">
+      <div class="container">
+        <h2>{t({
+          "zh-cn": "关键要点",
+          "en": "Key Highlights",
+          "es": "Puntos clave",
+          "fr": "Points clés",
+          "de": "Wichtige Highlights",
+          "ja": "主なポイント",
+          "ru": "Ключевые моменты",
+          "pt": "Pontos principais",
+          "ar": "النقاط الرئيسية",
+          "ko": "주요 내용"
+        })}</h2>
+        <ul class="features-list">
+          <li>{t({
+            "zh-cn": "快乐恶魂是《我的世界》2025年第二游戏更新的一部分，预计将在今年晚些时候发布，目前处于测试阶段。",
+            "en": "The Happy Ghast is part of Minecraft’s second game update of 2025, expected to release later this year, currently in testing.",
+            "es": "El Fantasma Feliz forma parte de la segunda actualización de Minecraft de 2025, que se espera se lance a finales de este año, actualmente en pruebas.",
+            "fr": "Le Fantôme Joyeux fait partie de la deuxième mise à jour de Minecraft 2025, prévue pour plus tard cette année, actuellement en phase de test.",
+            "de": "Der Fröhliche Ghast ist Teil des zweiten Spiel-Updates von Minecraft 2025, das später in diesem Jahr veröffentlicht wird und sich derzeit in der Testphase befindet.",
+            "ja": "ハッピーガストは『マインクラフト』2025年第2ゲームアップデートの内容で、今年後半にリリース予定、現在テスト段階です。",
+            "ru": "Счастливый Гаст — часть второго игрового обновления Minecraft 2025 года, выпуск которого ожидается позже в этом году, сейчас в стадии тестирования.",
+            "pt": "O Fantasma Feliz faz parte da segunda atualização de jogo do Minecraft de 2025, prevista para ser lançada no final deste ano, atualmente em teste.",
+            "ar": "الشبح السعيد جزء من التحديث الثاني للعبة ماينكرافت 2025، من المتوقع إصداره في وقت لاحق هذا العام، وهو حاليًا في مرحلة الاختبار.",
+            "ko": "행복한 가스트는 마인크래프트 2025년 두 번째 게임 업데이트의 일부로, 올해 말에 출시될 예정이며 현재 테스트 단계에 있습니다."
+          })}</li>
+          <li>{t({
+            "zh-cn": "它是从干燥恶魂（Dried Ghast）开始，通过在主世界中用水浸泡变成恶魂幼体（Ghastling），然后喂食雪球使其成长为快乐恶魂。",
+            "en": "It starts as a Dried Ghast, which is soaked in water in the Overworld to become a Ghastling, then fed snowballs to grow into a Happy Ghast.",
+            "es": "Comienza como un Fantasma Seco (Dried Ghast), que se empapa en agua en el Overworld para convertirse en un Ghastling, y luego se le dan bolas de nieve para que crezca como Fantasma Feliz.",
+            "fr": "Il commence comme un Fantôme Sec (Dried Ghast), trempé dans l’eau dans l’Overworld pour devenir un Ghastling, puis nourri de boules de neige pour devenir un Fantôme Joyeux.",
+            "de": "Es beginnt als Trockener Ghast (Dried Ghast), der im Overworld mit Wasser getränkt wird, um ein Ghastling zu werden, und dann mit Schneebällen gefüttert wird, um ein Fröhlicher Ghast zu werden.",
+            "ja": "乾燥ガスト（Dried Ghast）から始まり、オーバーワールドで水をかけてガストリング（Ghastling）に変え、その後雪玉を与えてハッピーガストに成長させます。",
+            "ru": "Начинается с Сухого Гаста (Dried Ghast), который замачивается в воде в Оверворлде, чтобы стать Гастлингом, а затем кормится снежками, чтобы вырасти в Счастливого Гаста.",
+            "pt": "Começa como um Fantasma Seco (Dried Ghast), que é encharcado com água no Overworld para se tornar um Ghastling, e depois alimentado com bolas de neve para crescer como Fantasma Feliz.",
+            "ar": "يبدأ كشبح جاف (Dried Ghast)، يُنقع في الماء في العالم العلوي ليصبح غاستلينغ (Ghastling)، ثم يُطعم كرات الثلج لينمو إلى شبح سعيد.",
+            "ko": "건조된 가스트(Dried Ghast)에서 시작하여 오버월드에서 물에 담가 가스트링(Ghastling)이 되고, 눈덩이를 먹여 행복한 가스트로 성장합니다."
+          })}</li>
+          <li>{t({
+            "zh-cn": "玩家可以骑乘快乐恶魂飞行，最多可携带四人，还能从其背上建造高建筑。",
+            "en": "Players can ride the Happy Ghast to fly, carrying up to four people, and build tall structures from its back.",
+            "es": "Los jugadores pueden montar el Fantasma Feliz para volar, llevando hasta cuatro personas, y construir estructuras altas desde su espalda.",
+            "fr": "Les joueurs peuvent chevaucher le Fantôme Joyeux pour voler, transportant jusqu’à quatre personnes, et construire de hautes structures depuis son dos.",
+            "de": "Spieler können den Fröhlichen Ghast reiten, um zu fliegen, bis zu vier Personen tragen und hohe Strukturen von seinem Rücken aus bauen.",
+            "ja": "プレイヤーはハッピーガストに乗って飛行でき、最大4人まで運べ、背中から高い建築物を建てられます。",
+            "ru": "Игроки могут ездить на Счастливом Гасте, чтобы летать, перевозя до четырёх человек, и строить высокие сооружения с его спины.",
+            "pt": "Os jogadores podem montar o Fantasma Feliz para voar, carregando até quatro pessoas, e construir estruturas altas a partir de suas costas.",
+            "ar": "يمكن للاعبين ركوب الشبح السعيد للطيران، حاملين ما يصل إلى أربعة أشخاص، وبناء هياكل عالية من ظهره.",
+            "ko": "플레이어는 행복한 가스트를 타고 날 수 있으며, 최대 4명을 태울 수 있고, 등 위에서 높은 구조물을 지을 수 있습니다."
+          })}</li>
+          <li>{t({
+            "zh-cn": "研究表明，快乐恶魂的加入将为生存模式玩家提供新的探索和建造方式。",
+            "en": "Research shows that adding the Happy Ghast will offer survival mode players new ways to explore and build.",
+            "es": "Las investigaciones muestran que la adición del Fantasma Feliz ofrecerá a los jugadores en modo supervivencia nuevas formas de explorar y construir.",
+            "fr": "Des recherches montrent que l’ajout du Fantôme Joyeux offrira aux joueurs en mode survie de nouvelles façons d’explorer et de construire.",
+            "de": "Forschungen zeigen, dass die Hinzufügung des Fröhlichen Ghasts den Spielern im Überlebensmodus neue Möglichkeiten zum Erkunden und Bauen bietet.",
+            "ja": "研究によると、ハッピーガストの追加はサバイバルモードのプレイヤーに新しい探索と建築の方法を提供します。",
+            "ru": "Исследования показывают, что добавление Счастливого Гаста предоставит игрокам в режиме выживания новые способы исследования и строительства.",
+            "pt": "Pesquisas mostram que a adição do Fantasma Feliz oferecerá aos jogadores no modo sobrevivência novas formas de explorar e construir.",
+            "ar": "تشير الدراسات إلى أن إضافة الشبح السعيد ستوفر للاعبين في وضع البقاء طرقًا جديدة للاستكشاف والبناء.",
+            "ko": "연구에 따르면 행복한 가스트의 추가는 서바이벌 모드 플레이어에게 새로운 탐험과 건축 방법을 제공할 것입니다."
+          })}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="what-is" class="section alt-bg">
+      <div class="container">
+        <h2>{t({
+          "zh-cn": "什么是快乐恶魂？",
+          "en": "What is the Happy Ghast?",
+          "es": "¿Qué es el Fantasma Feliz?",
+          "fr": "Qu’est-ce que le Fantôme Joyeux ?",
+          "de": "Was ist der Fröhliche Ghast?",
+          "ja": "ハッピーガストとは何ですか？",
+          "ru": "Что такое Счастливый Гаст?",
+          "pt": "O que é o Fantasma Feliz?",
+          "ar": "ما هو الشبح السعيد؟",
+          "ko": "행복한 가스트란 무엇인가요?"
+        })}</h2>
+        <div class="content-with-image">
+          <div class="text">
+            <p>{t({
+              "zh-cn": "快乐恶魂是一种友好的新生物，与地狱中的传统恶魂不同，它不会攻击玩家。玩家可以骑乘它在主世界中飞行，类似于使用鞘翅，但无需找到末地城市。",
+              "en": "The Happy Ghast is a friendly new mob, unlike the traditional Ghasts in the Nether, as it doesn’t attack players. Players can ride it to fly in the Overworld, similar to using Elytra, but without needing to find an End City.",
+              "es": "El Fantasma Feliz es una nueva criatura amigable, a diferencia de los Ghasts tradicionales del Nether, ya que no ataca a los jugadores. Los jugadores pueden montarlo para volar en el Overworld, similar a usar élitros, pero sin necesidad de encontrar una ciudad del End.",
+              "fr": "Le Fantôme Joyeux est une nouvelle créature amicale, contrairement aux Ghasts traditionnels du Nether, car il n’attaque pas les joueurs. Les joueurs peuvent le chevaucher pour voler dans l’Overworld, comme avec des élytres, mais sans avoir à trouver une ville de l’End.",
+              "de": "Der Fröhliche Ghast ist ein freundlicher neuer Mob, im Gegensatz zu den traditionellen Ghasts im Nether, da er Spieler nicht angreift. Spieler können ihn reiten, um im Overworld zu fliegen, ähnlich wie mit Elytren, aber ohne eine Endstadt finden zu müssen.",
+              "ja": "ハッピーガストは友好的な新しいモブで、ネザーの伝統的なガストとは異なり、プレイヤーを攻撃しません。プレイヤーはそれに乗ってオーバーワールドを飛行でき、エリトラを使うのに似ていますが、エンドシティを見つける必要はありません。",
+              "ru": "Счастливый Гаст — это дружелюбный новый моб, в отличие от традиционных Гастов в Незере, он не атакует игроков. Игроки могут ездить на нём, чтобы летать в Оверворлде, как с элитрами, но без необходимости искать город Края.",
+              "pt": "O Fantasma Feliz é um novo mob amigável, diferente dos Ghasts tradicionais do Nether, pois não ataca os jogadores. Os jogadores podem montá-lo para voar no Overworld, semelhante ao uso de élitros, mas sem precisar encontrar uma cidade do End.",
+              "ar": "الشبح السعيد هو كائن جديد ودود، على عكس الغاست التقليدي في النيثر، فهو لا يهاجم اللاعبين. يمكن للاعبين ركوبه للطيران في العالم العلوي، مشابه لاستخدام الأجنحة، ولكن دون الحاجة إلى العثور على مدينة النهاية.",
+              "ko": "행복한 가스트는 친근한 새로운 몹으로, 네더의 전통적인 가스트와 달리 플레이어를 공격하지 않습니다. 플레이어는 이를 타고 오버월드에서 날 수 있으며, 엘리트라를 사용하는 것과 비슷하지만 엔드 도시를 찾을 필요가 없습니다."
+            })}</p>
+            <p>{t({
+              "zh-cn": "这种生物为《我的世界》带来了全新的空中移动方式，特别适合那些喜欢探索和建造的玩家。",
+              "en": "This mob brings a brand-new way of air travel to Minecraft, especially suited for players who love exploring and building.",
+              "es": "Esta criatura trae una nueva forma de viaje aéreo a Minecraft, especialmente adecuada para jugadores que aman explorar y construir.",
+              "fr": "Cette créature apporte une nouvelle façon de voyager dans les airs dans Minecraft, particulièrement adaptée aux joueurs qui aiment explorer et construire.",
+              "de": "Dieser Mob bringt eine völlig neue Art der Luftbewegung in Minecraft, besonders geeignet für Spieler, die gerne erkunden und bauen.",
+              "ja": "このモブは『マインクラフト』に全新的な空中移動手段をもたらし、特に探索と建築が好きなプレイヤーに適しています。",
+              "ru": "Этот моб приносит в Minecraft совершенно новый способ передвижения по воздуху, особенно подходящий для игроков, которые любят исследовать и строить.",
+              "pt": "Esse mob traz uma nova forma de viagem aérea ao Minecraft, especialmente adequada para jogadores que adoram explorar e construir.",
+              "ar": "هذا الكائن يجلب طريقة جديدة تمامًا للتنقل الجوي في ماينكرافت، وهو مناسب بشكل خاص للاعبين الذين يحبون الاستكشاف والبناء.",
+              "ko": "이 몹은 마인크래프트에 완전히 새로운 공중 이동 방식을 제공하며, 특히 탐험과 건축을 좋아하는 플레이어에게 적합합니다."
+            })}</p>
+          </div>
+          <div class="image">
+            <Image 
+              src={happyGhastImg} 
+              alt="快乐恶魂的近照，展示其友好的笑脸" 
+              width={400} 
+              height={300}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to-get" class="section">
+      <div class="container">
+        <h2>{t({
+          "zh-cn": "如何获得快乐恶魂？",
+          "en": "How to Get the Happy Ghast?",
+          "es": "¿Cómo obtener el Fantasma Feliz?",
+          "fr": "Comment obtenir le Fantôme Joyeux ?",
+          "de": "Wie bekommt man den Fröhlichen Ghast?",
+          "ja": "ハッピーガストをどうやって手に入れるの？",
+          "ru": "Как получить Счастливого Гаста?",
+          "pt": "Como obter o Fantasma Feliz?",
+          "ar": "كيف تحصل على الشبح السعيد؟",
+          "ko": "행복한 가스트를 어떻게 얻나요?"
+        })}</h2>
+        <em>{t({
+          "zh-cn": "按照以下步骤获得您自己的快乐恶魂",
+          "en": "Follow these steps to get your own Happy Ghast",
+          "es": "Sigue estos pasos para obtener tu propio Fantasma Feliz",
+          "fr": "Suivez ces étapes pour obtenir votre propre Fantôme Joyeux",
+          "de": "Folgen Sie diesen Schritten, um Ihren eigenen Fröhlichen Ghast zu bekommen",
+          "ja": "以下の手順であなた自身のハッピーガストを手に入れてください",
+          "ru": "Следуйте этим шагам, чтобы получить своего собственного Счастливого Гаста",
+          "pt": "Siga estes passos para obter seu próprio Fantasma Feliz",
+          "ar": "اتبع هذه الخطوات للحصول على شبحك السعيد الخاص",
+          "ko": "다음 단계를 따라 자신만의 행복한 가스트를 얻으세요"
+        })}</em>
+        
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>{t({
+                "zh-cn": "寻找干燥恶魂",
+                "en": "Find a Dried Ghast",
+                "es": "Encuentra un Fantasma Seco",
+                "fr": "Trouvez un Fantôme Sec",
+                "de": "Finden Sie einen Trockenen Ghast",
+                "ja": "乾燥ガストを見つける",
+                "ru": "Найдите Сухого Гаста",
+                "pt": "Encontre um Fantasma Seco",
+                "ar": "ابحث عن شبح جاف",
+                "ko": "건조된 가스트를 찾으세요"
+              })}</h3>
+              <p>{t({
+                "zh-cn": "在地狱的灵魂沙谷（Soul Sand Valley）生物群系中找到干燥恶魂，这是一种小型方块，看起来像悲伤的恶魂脸。",
+                "en": "Locate a Dried Ghast in the Soul Sand Valley biome of the Nether; it’s a small block that looks like a sad Ghast face.",
+                "es": "Localiza un Fantasma Seco en el bioma del Valle de Arena de Almas en el Nether; es un bloque pequeño que parece una cara triste de Ghast.",
+                "fr": "Trouvez un Fantôme Sec dans le biome de la Vallée de Sable des Âmes du Nether ; c’est un petit bloc qui ressemble à un visage triste de Ghast.",
+                "de": "Finden Sie einen Trockenen Ghast im Seelensandtal-Biom des Nethers; es ist ein kleiner Block, der wie ein trauriges Ghast-Gesicht aussieht.",
+                "ja": "ネザーのソウルサンドバレー（Soul Sand Valley）バイオームで乾燥ガストを見つけます。これは悲しそうなガストの顔のような小さなブロックです。",
+                "ru": "Найдите Сухого Гаста в биоме Долины песка душ в Незере; это маленький блок, похожий на грустное лицо Гаста.",
+                "pt": "Localize um Fantasma Seco no bioma do Vale de Areia das Almas no Nether; é um bloco pequeno que parece uma face triste de Ghast.",
+                "ar": "ابحث عن شبح جاف في بيوم وادي رمال الأرواح في النيثر؛ إنه كتلة صغيرة تشبه وجه غاست حزين.",
+                "ko": "네더의 소울 샌드 밸리(Soul Sand Valley) 바이옴에서 건조된 가스트를 찾으세요. 이는 슬픈 가스트 얼굴처럼 보이는 작은 블록입니다."
+              })}</p>
+              <Image 
+                src={driedGhastImg} 
+                alt="干燥恶魂方块在灵魂沙谷中的样子" 
+                width={300} 
+                height={200}
+                loading="lazy"
+              />
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>{t({
+                "zh-cn": "运送到主世界",
+                "en": "Transport to the Overworld",
+                "es": "Transporta al Overworld",
+                "fr": "Transportez vers l’Overworld",
+                "de": "In den Overworld transportieren",
+                "ja": "オーバーワールドに運ぶ",
+                "ru": "Перевезти в Оверворлд",
+                "pt": "Transporte para o Overworld",
+                "ar": "نقله إلى العالم العلوي",
+                "ko": "오버월드로 운반하세요"
+              })}</h3>
+              <p>{t({
+                "zh-cn": "将干燥恶魂方块带到主世界，准备进行再水化过程。",
+                "en": "Bring the Dried Ghast block to the Overworld to prepare for the rehydration process.",
+                "es": "Lleva el bloque de Fantasma Seco al Overworld para prepararlo para el proceso de rehidratación.",
+                "fr": "Apportez le bloc de Fantôme Sec dans l’Overworld pour préparer le processus de réhydratation.",
+                "de": "Bringen Sie den Trockenen Ghast-Block in den Overworld, um den Rehydratisierungsprozess vorzubereiten.",
+                "ja": "乾燥ガストブロックをオーバーワールドに持って行き、再水和プロセスを準備します。",
+                "ru": "Принесите блок Сухого Гаста в Оверворлд, чтобы подготовиться к процессу регидратации.",
+                "pt": "Leve o bloco de Fantasma Seco para o Overworld para preparar o processo de reidratação.",
+                "ar": "أحضر كتلة الشبح الجاف إلى العالم العلوي للتحضير لعملية الترطيب.",
+                "ko": "건조된 가스트 블록을 오버월드로 가져와 재수화 과정을 준비하세요."
+              })}</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>{t({
+                "zh-cn": "浸入水中",
+                "en": "Soak in Water",
+                "es": "Remojar en agua",
+                "fr": "Tremper dans l’eau",
+                "de": "In Wasser einweichen",
+                "ja": "水に浸す",
+                "ru": "Замочить в воде",
+                "pt": "Molhar na água",
+                "ar": "انقعه في الماء",
+                "ko": "물에 담그세요"
+              })}</h3>
+              <p>{t({
+                "zh-cn": "将干燥恶魂完全浸入水中（可以使用现有水体或创造一个水池），等待约20分钟，干燥恶魂会变成恶魂幼体。",
+                "en": "Fully submerge the Dried Ghast in water (using an existing body of water or creating a pool), wait about 20 minutes, and it will turn into a Ghastling.",
+                "es": "Sumerge completamente el Fantasma Seco en agua (usando un cuerpo de agua existente o creando un estanque), espera unos 20 minutos y se convertirá en un Ghastling.",
+                "fr": "Immergez complètement le Fantôme Sec dans l’eau (en utilisant un plan d’eau existant ou en créant une piscine), attendez environ 20 minutes, et il se transformera en Ghastling.",
+                "de": "Tauchen Sie den Trockenen Ghast vollständig in Wasser (entweder in einem vorhandenen Gewässer oder einem selbst erstellten Becken), warten Sie etwa 20 Minuten, und er wird zu einem Ghastling.",
+                "ja": "乾燥ガストを完全に水に浸し（既存の水域を使うかプールを作ります）、約20分待つとガストリングに変わります。",
+                "ru": "Полностью погрузите Сухого Гаста в воду (используя существующий водоём или создав бассейн), подождите около 20 минут, и он превратится в Гастлинга.",
+                "pt": "Mergulhe completamente o Fantasma Seco na água (usando um corpo d’água existente ou criando uma piscina), espere cerca de 20 minutos, e ele se transformará em um Ghastling.",
+                "ar": "اغمر الشبح الجاف بالكامل في الماء (باستخدام جسم مائي موجود أو إنشاء بركة)، انتظر حوالي 20 دقيقة، وسيتحول إلى غاستلينغ.",
+                "ko": "건조된 가스트를 물에 완전히 담그고 (기존 물이나 만든 웅덩이를 사용), 약 20분 기다리면 가스트링으로 변합니다."
+              })}</p>
+              <Image 
+                src={ghastlingImg} 
+                alt="恶魂幼体从水中出现" 
+                width={300} 
+                height={200}
+                loading="lazy"
+              />
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>{t({
+                "zh-cn": "喂食雪球",
+                "en": "Feed Snowballs",
+                "es": "Alimentar con bolas de nieve",
+                "fr": "Nourrir avec des boules de neige",
+                "de": "Mit Schneebällen füttern",
+                "ja": "雪玉を与える",
+                "ru": "Кормить снежками",
+                "pt": "Alimentar com bolas de neve",
+                "ar": "أطعمه كرات الثلج",
+                "ko": "눈덩이를 먹이세요"
+              })}</h3>
+              <p>{t({
+                "zh-cn": "喂食恶魂幼体雪球以加速其成长为快乐恶魂，也可等待其自然成长。",
+                "en": "Feed the Ghastling snowballs to speed up its growth into a Happy Ghast, or wait for it to grow naturally.",
+                "es": "Alimenta al Ghastling con bolas de nieve para acelerar su crecimiento hasta convertirse en un Fantasma Feliz, o espera a que crezca naturalmente.",
+                "fr": "Nourrissez le Ghastling avec des boules de neige pour accélérer sa croissance en Fantôme Joyeux, ou attendez qu’il grandisse naturellement.",
+                "de": "Füttern Sie den Ghastling mit Schneebällen, um sein Wachstum zu einem Fröhlichen Ghast zu beschleunigen, oder warten Sie, bis er natürlich wächst.",
+                "ja": "ガストリングに雪玉を与えてハッピーガストへの成長を早めるか、自然に成長するのを待つこともできます。",
+                "ru": "Кормите Гастлинга снежками, чтобы ускорить его рост в Счастливого Гаста, или ждите, пока он вырастет естественным путём.",
+                "pt": "Alimente o Ghastling com bolas de neve para acelerar seu crescimento até se tornar um Fantasma Feliz, ou espere que ele cresça naturalmente.",
+                "ar": "أطعم الغاستلينغ كرات الثلج لتسريع نموه إلى شبح سعيد، أو انتظر حتى ينمو بشكل طبيعي.",
+                "ko": "가스트링에게 눈덩이를 먹여 행복한 가스트로 성장 속도를 높이거나, 자연스럽게 자랄 때까지 기다릴 수 있습니다."
+              })}</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>{t({
+                "zh-cn": "制作马具",
+                "en": "Craft a Harness",
+                "es": "Fabricar un arnés",
+                "fr": "Fabriquer un harnais",
+                "de": "Ein Geschirr herstellen",
+                "ja": "ハーネスを作る",
+                "ru": "Сделать упряжь",
+                "pt": "Criar um arnês",
+                "ar": "اصنع حزامًا",
+                "ko": "마구를 제작하세요"
+              })}</h3>
+              <p>{t({
+                "zh-cn": "使用玻璃、皮革和羊毛制作一个马具，不同颜色的羊毛可制作不同颜色的马具。",
+                "en": "Use glass, leather, and wool to craft a harness; different wool colors can create harnesses of different colors.",
+                "es": "Usa vidrio, cuero y lana para fabricar un arnés; diferentes colores de lana pueden crear arneses de diferentes colores.",
+                "fr": "Utilisez du verre, du cuir et de la laine pour fabriquer un harnais ; différentes couleurs de laine peuvent créer des harnais de différentes couleurs.",
+                "de": "Verwenden Sie Glas, Leder und Wolle, um ein Geschirr herzustellen; verschiedene Wollfarben können Geschirre in verschiedenen Farben erzeugen.",
+                "ja": "ガラス、革、羊毛を使ってハーネスを作ります。異なる色の羊毛で異なる色のハーネスが作れます。",
+                "ru": "Используйте стекло, кожу и шерсть, чтобы сделать упряжь; разные цвета шерсти позволяют создавать упряжи разных цветов.",
+                "pt": "Use vidro, couro e lã para criar um arnês; diferentes cores de lã podem criar arneses de diferentes cores.",
+                "ar": "استخدم الزجاج والجلد والصوف لصنع حزام؛ يمكن لألوان الصوف المختلفة أن تصنع أحزمة بألوان مختلفة.",
+                "ko": "유리, 가죽, 양털을 사용해 마구를 제작하세요. 양털 색상에 따라 다른 색상의 마구를 만들 수 있습니다."
+              })}</p>
+              <Image 
+                src={harnessImg} 
+                alt="快乐恶魂马具的合成表" 
+                width={300} 
+                height={200}
+                loading="lazy"
+              />
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3>{t({
+                "zh-cn": "装备马具",
+                "en": "Equip the Harness",
+                "es": "Equipar el arnés",
+                "fr": "Équiper le harnais",
+                "de": "Das Geschirr anlegen",
+                "ja": "ハーネスを装備する",
+                "ru": "Надеть упряжь",
+                "pt": "Equipar o arnês",
+                "ar": "جهز الحزام",
+                "ko": "마구를 장착하세요"
+              })}</h3>
+              <p>{t({
+                "zh-cn": "将马具装备在成长完成的快乐恶魂上，即可骑乘。",
+                "en": "Equip the harness on the fully grown Happy Ghast, and it’s ready to ride.",
+                "es": "Equipa el arnés en el Fantasma Feliz completamente crecido, y estará listo para montar.",
+                "fr": "Équipez le harnais sur le Fantôme Joyeux complètement développé, et il sera prêt à être chevauché.",
+                "de": "Legen Sie das Geschirr dem vollständig gewachsenen Fröhlichen Ghast an, und er ist bereit zum Reiten.",
+                "ja": "成長したハッピーガストにハーネスを装備すれば、乗ることができます。",
+                "ru": "Наденьте упряжь на полностью выросшего Счастливого Гаста, и он готов к езде.",
+                "pt": "Equipe o arnês no Fantasma Feliz totalmente crescido, e ele estará pronto para ser montado.",
+                "ar": "جهز الحزام على الشبح السعيد البالغ نموه بالكامل، وسيكون جاهزًا للركوب.",
+                "ko": "완전히 성장한 행복한 가스트에 마구를 장착하면 탈 준비가 됩니다."
+              })}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section alt-bg">
+      <div class="container">
+        <h2>{t({
+          "zh-cn": "快乐恶魂的功能与用途",
+          "en": "Features and Uses of the Happy Ghast",
+          "es": "Características y usos del Fantasma Feliz",
+          "fr": "Fonctionnalités et utilisations du Fantôme Joyeux",
+          "de": "Funktionen und Verwendungszwecke des Fröhlichen Ghast",
+          "ja": "ハッピーガストの機能と用途",
+          "ru": "Функции и использование Счастливого Гаста",
+          "pt": "Características e usos do Fantasma Feliz",
+          "ar": "ميزات واستخدامات الشبح السعيد",
+          "ko": "행복한 가스트의 기능과 용도"
+        })}</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>{t({
+              "zh-cn": "飞行功能",
+              "en": "Flight Capability",
+              "es": "Capacidad de vuelo",
+              "fr": "Capacité de vol",
+              "de": "Flugfähigkeit",
+              "ja": "飛行機能",
+              "ru": "Способность к полёту",
+              "pt": "Capacidade de voo",
+              "ar": "قدرة الطيران",
+              "ko": "비행 기능"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "玩家可骑乘快乐恶魂飞行，适合探索主世界的广阔地域。虽然速度比鞘翅慢，但更容易控制且不需要消耗火箭。",
+              "en": "Players can ride the Happy Ghast to fly, ideal for exploring vast areas of the Overworld. Though slower than Elytra, it’s easier to control and doesn’t require rockets.",
+              "es": "Los jugadores pueden montar el Fantasma Feliz para volar, ideal para explorar vastas áreas del Overworld. Aunque es más lento que los élitros, es más fácil de controlar y no requiere cohetes.",
+              "fr": "Les joueurs peuvent chevaucher le Fantôme Joyeux pour voler, idéal pour explorer de vastes zones de l’Overworld. Bien que plus lent que les élytres, il est plus facile à contrôler et ne nécessite pas de fusées.",
+              "de": "Spieler können den Fröhlichen Ghast reiten, um zu fliegen, ideal zur Erkundung großer Gebiete des Overworlds. Obwohl langsamer als Elytren, ist er leichter zu steuern und benötigt keine Raketen.",
+              "ja": "プレイヤーはハッピーガストに乗って飛行でき、オーバーワールドの広大な地域を探索するのに最適です。エリトラより遅いですが、制御が簡単でロケットを必要としません。",
+              "ru": "Игроки могут ездить на Счастливом Гасте, чтобы летать, что идеально для исследования обширных территорий Оверворлда. Хотя он медленнее элитр, его легче контролировать, и он не требует ракет.",
+              "pt": "Os jogadores podem montar o Fantasma Feliz para voar, ideal para explorar vastas áreas do Overworld. Embora mais lento que os élitros, é mais fácil de controlar e não requer foguetes.",
+              "ar": "يمكن للاعبين ركوب الشبح السعيد للطيران، وهو مثالي لاستكشاف مناطق واسعة في العالم العلوي. على الرغم من أنه أبطأ من الأجنحة، إلا أنه أسهل في التحكم ولا يتطلب صواريخ.",
+              "ko": "플레이어는 행복한 가스트를 타고 날 수 있으며, 오버월드의 넓은 지역을 탐험하기에 이상적입니다. 엘리트라보다 느리지만 제어하기 쉽고 로켓이 필요 없습니다."
+            })}</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3>{t({
+              "zh-cn": "多人骑乘",
+              "en": "Multiplayer Riding",
+              "es": "Montura multijugador",
+              "fr": "Chevauchée multijoueur",
+              "de": "Mehrspieler-Reiten",
+              "ja": "複数人乗車",
+              "ru": "Многопользовательская езда",
+              "pt": "Montaria multiplayer",
+              "ar": "ركوب متعدد اللاعبين",
+              "ko": "다중 플레이어 탑승"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "最多四人可同时骑乘一只快乐恶魂，适合团队冒险和共同探索，前方玩家控制方向。",
+              "en": "Up to four people can ride a single Happy Ghast at once, perfect for team adventures and group exploration, with the front player controlling the direction.",
+              "es": "Hasta cuatro personas pueden montar un solo Fantasma Feliz a la vez, perfecto para aventuras en equipo y exploración grupal, con el jugador delantero controlando la dirección.",
+              "fr": "Jusqu’à quatre personnes peuvent chevaucher un seul Fantôme Joyeux en même temps, parfait pour les aventures en équipe et l’exploration en groupe, le joueur à l’avant contrôlant la direction.",
+              "de": "Bis zu vier Personen können gleichzeitig einen Fröhlichen Ghast reiten, ideal für Teamabenteuer und Gruppenforschung, wobei der vordere Spieler die Richtung steuert.",
+              "ja": "最大4人が同時に1匹のハッピーガストに乗れ、チームでの冒険や共同探索に最適で、前方のプレイヤーが方向を制御します。",
+              "ru": "До четырёх человек могут одновременно ездить на одном Счастливом Гасте, что идеально для командных приключений и совместного исследования, причём передний игрок управляет направлением.",
+              "pt": "Até quatro pessoas podem montar um único Fantasma Feliz ao mesmo tempo, perfeito para aventuras em equipe e exploração em grupo, com o jogador da frente controlando a direção.",
+              "ar": "يمكن لما يصل إلى أربعة أشخاص ركوب شبح سعيد واحد في وقت واحد، وهو مثالي للمغامرات الجماعية والاستكشاف المشترك، مع تحكم اللاعب الأمامي في الاتجاه.",
+              "ko": "최대 4명이 한 마리의 행복한 가스트를 동시에 탈 수 있으며, 팀 모험과 공동 탐험에 적합하며 앞쪽 플레이어가 방향을 제어합니다."
+            })}</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3>{t({
+              "zh-cn": "建造辅助",
+              "en": "Building Assistance",
+              "es": "Asistencia en construcción",
+              "fr": "Aide à la construction",
+              "de": "Bauhilfe",
+              "ja": "建築補助",
+              "ru": "Помощь в строительстве",
+              "pt": "Assistência na construção",
+              "ar": "مساعدة البناء",
+              "ko": "건축 보조"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "骑乘时可从恶魂背上建造，方便在生存模式中建造高建筑或空中基地，无需搭建脚手架。",
+              "en": "While riding, you can build from the Ghast’s back, making it easy to construct tall buildings or sky bases in survival mode without scaffolding.",
+              "es": "Mientras montas, puedes construir desde la espalda del Ghast, facilitando la construcción de edificios altos o bases aéreas en modo supervivencia sin andamios.",
+              "fr": "En chevauchant, vous pouvez construire depuis le dos du Ghast, facilitant la construction de bâtiments élevés ou de bases aériennes en mode survie sans échafaudages.",
+              "de": "Während des Reitens können Sie vom Rücken des Ghasts aus bauen, was den Bau hoher Gebäude oder Luftbasen im Überlebensmodus ohne Gerüste erleichtert.",
+              "ja": "乗っている間にガストの背中から建築でき、サバイバルモードで高い建物や空中基地を足場なしで簡単に作れます。",
+              "ru": "Во время езды можно строить со спины Гаста, что упрощает возведение высоких зданий или воздушных баз в режиме выживания без использования лесов.",
+              "pt": "Enquanto monta, você pode construir a partir das costas do Ghast, facilitando a construção de edifícios altos ou bases aéreas no modo sobrevivência sem andaimes.",
+              "ar": "أثناء الركوب، يمكنك البناء من ظهر الغاست، مما يسهل بناء المباني العالية أو القواعد الجوية في وضع البقاء دون الحاجة إلى سقالات.",
+              "ko": "타는 동안 가스트 등에서 건축할 수 있어 서바이벌 모드에서 높은 건물이나 공중 기지를 비계 없이 쉽게 지을 수 있습니다."
+            })}</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3>{t({
+              "zh-cn": "召回功能",
+              "en": "Recall Function",
+              "es": "Función de recuperación",
+              "fr": "Fonction de rappel",
+              "de": "Rückruffunktion",
+              "ja": "呼び戻し機能",
+              "ru": "Функция отзыва",
+              "pt": "Função de chamada",
+              "ar": "وظيفة الاستدعاء",
+              "ko": "소환 기능"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "如果快乐恶魂跑远，可用雪球召回，确保您不会丢失您珍贵的飞行伙伴。",
+              "en": "If the Happy Ghast wanders off, you can recall it with snowballs, ensuring you don’t lose your precious flying companion.",
+              "es": "Si el Fantasma Feliz se aleja, puedes llamarlo de vuelta con bolas de nieve, asegurándote de no perder a tu preciado compañero volador.",
+              "fr": "Si le Fantôme Joyeux s’éloigne, vous pouvez le rappeler avec des boules de neige, garantissant que vous ne perdiez pas votre précieux compagnon volant.",
+              "de": "Falls der Fröhliche Ghast wegwandert, können Sie ihn mit Schneebällen zurückrufen, sodass Sie Ihren wertvollen Flugbegleiter nicht verlieren.",
+              "ja": "ハッピーガストが遠くに行ってしまった場合、雪玉で呼び戻せ、大切な飛行仲間を失わないようにできます。",
+              "ru": "Если Счастливый Гаст уйдёт далеко, вы можете отозвать его снежками, чтобы не потерять своего ценного летающего спутника.",
+              "pt": "Se o Fantasma Feliz se afastar, você pode chamá-lo de volta com bolas de neve, garantindo que não perca seu precioso companheiro voador.",
+              "ar": "إذا ابتعد الشبح السعيد، يمكنك استدعاؤه بكرات الثلج، مما يضمن عدم فقدان رفيقك الطائر الثمين.",
+              "ko": "행복한 가스트가 멀리 가버리면 눈덩이로 소환할 수 있어 소중한 비행 동료를 잃지 않도록 할 수 있습니다."
+            })}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="update-info" class="section">
+      <div class="container">
+        <h2>{t({
+          "zh-cn": "更新详情",
+          "en": "Update Details",
+          "es": "Detalles de la actualización",
+          "fr": "Détails de la mise à jour",
+          "de": "Update-Details",
+          "ja": "アップデートの詳細",
+          "ru": "Подробности обновления",
+          "pt": "Detalhes da atualização",
+          "ar": "تفاصيل التحديث",
+          "ko": "업데이트 세부 정보"
+        })}</h2>
+        <div class="update-info">
+          <div class="release-info">
+            <h3>{t({
+              "zh-cn": "发布时间",
+              "en": "Release Date",
+              "es": "Fecha de lanzamiento",
+              "fr": "Date de sortie",
+              "de": "Veröffentlichungsdatum",
+              "ja": "リリース日",
+              "ru": "Дата выпуска",
+              "pt": "Data de lançamento",
+              "ar": "تاريخ الإصدار",
+              "ko": "출시일"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "快乐恶魂是2025年第二游戏更新的内容，预计今年晚些时候发布，目前已进入测试阶段。",
+              "en": "The Happy Ghast is part of the second game update of 2025, expected to release later this year, and is currently in the testing phase.",
+              "es": "El Fantasma Feliz forma parte de la segunda actualización de juego de 2025, que se espera se lance a finales de este año, y está actualmente en fase de pruebas.",
+              "fr": "Le Fantôme Joyeux fait partie de la deuxième mise à jour de jeu de 2025, prévue pour plus tard cette année, et est actuellement en phase de test.",
+              "de": "Der Fröhliche Ghast ist Teil des zweiten Spiel-Updates von 2025, das später in diesem Jahr veröffentlicht wird und sich derzeit in der Testphase befindet.",
+              "ja": "ハッピーガストは2025年第2ゲームアップデートの内容で、今年後半にリリース予定、現在テスト段階にあります。",
+              "ru": "Счастливый Гаст — часть второго игрового обновления 2025 года, выпуск которого ожидается позже в этом году, сейчас в стадии тестирования.",
+              "pt": "O Fantasma Feliz faz parte da segunda atualização de jogo de 2025, prevista para ser lançada no final deste ano, e está atualmente em fase de testes.",
+              "ar": "الشبح السعيد جزء من التحديث الثاني للعبة في 2025، من المتوقع إصداره في وقت لاحق هذا العام، وهو حاليًا في مرحلة الاختبار.",
+              "ko": "행복한 가스트는 2025년 두 번째 게임 업데이트의 일부로, 올해 말에 출시될 예정이며 현재 테스트 단계에 있습니다."
+            })}</p>
+          </div>
+          
+          <div class="other-features">
+            <h3>{t({
+              "zh-cn": "其他更新内容",
+              "en": "Other Update Features",
+              "es": "Otras características de la actualización",
+              "fr": "Autres fonctionnalités de la mise à jour",
+              "de": "Weitere Update-Funktionen",
+              "ja": "その他のアップデート内容",
+              "ru": "Другие особенности обновления",
+              "pt": "Outras funcionalidades da atualização",
+              "ar": "ميزات التحديث الأخرى",
+              "ko": "기타 업데이트 기능"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "该更新还包括视觉升级'鲜艳视觉'（Vibrant Visuals），为玩家带来更沉浸的游戏体验，以及玩家定位条（Player Locator Bar），帮助玩家在多人世界中更容易找到队友。",
+              "en": "This update also includes a visual upgrade called 'Vibrant Visuals' for a more immersive gaming experience, and a Player Locator Bar to help players find teammates more easily in multiplayer worlds.",
+              "es": "Esta actualización también incluye una mejora visual llamada 'Vibrant Visuals' para una experiencia de juego más inmersiva, y una barra de localización de jugadores para ayudar a encontrar compañeros más fácilmente en mundos multijugador.",
+              "fr": "Cette mise à jour inclut également une amélioration visuelle appelée 'Vibrant Visuals' pour une expérience de jeu plus immersive, et une barre de localisation des joueurs pour aider à trouver plus facilement des coéquipiers dans les mondes multijoueurs.",
+              "de": "Dieses Update umfasst auch ein visuelles Upgrade namens 'Vibrant Visuals' für ein immersiveres Spielerlebnis sowie eine Spielerortungsleiste, um Teammitglieder in Mehrspielerwelten leichter zu finden.",
+              "ja": "このアップデートには、より没入感のあるゲーム体験のためのビジュアルアップグレード「ビブラントビジュアルズ（Vibrant Visuals）」と、マルチプレイヤーワールドでチームメイトを簡単に見つけるための「プレイヤーロケーターバー（Player Locator Bar）」も含まれています。",
+              "ru": "Это обновление также включает визуальное улучшение под названием 'Vibrant Visuals' для более захватывающего игрового опыта и панель локатора игроков, чтобы легче находить товарищей по команде в многопользовательских мирах.",
+              "pt": "Esta atualização também inclui uma melhoria visual chamada 'Vibrant Visuals' para uma experiência de jogo mais imersiva, e uma barra de localização de jogadores para ajudar a encontrar companheiros mais facilmente em mundos multijogador.",
+              "ar": "يتضمن هذا التحديث أيضًا ترقية بصرية تُسمى 'Vibrant Visuals' لتجربة لعب أكثر انغماسًا، وشريط تحديد مواقع اللاعبين لمساعدة اللاعبين في العثور على زملائهم بسهولة أكبر في العوالم متعددة اللاعبين.",
+              "ko": "이 업데이트에는 몰입감 있는 게임 경험을 위한 'Vibrant Visuals'라는 시각 업그레이드와 멀티플레이어 세계에서 팀원을 더 쉽게 찾을 수 있도록 도와주는 플레이어 위치 표시줄(Player Locator Bar)이 포함됩니다."
+            })}</p>
+          </div>
+        </div>
+
+        <div class="community-feedback">
+          <h3>{t({
+            "zh-cn": "社区反应",
+            "en": "Community Feedback",
+            "es": "Reacción de la comunidad",
+            "fr": "Réactions de la communauté",
+            "de": "Feedback der Gemeinschaft",
+            "ja": "コミュニティの反応",
+            "ru": "Отзывы сообщества",
+            "pt": "Reação da comunidade",
+            "ar": "ردود فعل المجتمع",
+            "ko": "커뮤니티 반응"
+          })}</h3>
+          <p>{t({
+            "zh-cn": "网上社区对快乐恶魂的反应积极，玩家讨论了其飞行功能和建造辅助的潜力，期待在末地中使用快乐恶魂飞行，以及对马具颜色自定义的期待。",
+            "en": "The online community has reacted positively to the Happy Ghast, with players discussing its flight capabilities and building assistance potential, looking forward to using it in the End, and anticipating harness color customization.",
+            "es": "La comunidad en línea ha reaccionado positivamente al Fantasma Feliz, con jugadores discutiendo sus capacidades de vuelo y el potencial de asistencia en la construcción, esperando usarlo en el End y anticipando la personalización del color del arnés.",
+            "fr": "La communauté en ligne a réagi positivement au Fantôme Joyeux, les joueurs discutant de ses capacités de vol et de son potentiel d’aide à la construction, impatients de l’utiliser dans l’End et anticipant la personnalisation des couleurs du harnais.",
+            "de": "Die Online-Community hat positiv auf den Fröhlichen Ghast reagiert, wobei Spieler über seine Flugfähigkeiten und das Potenzial zur Bauhilfe diskutieren, sich darauf freuen, ihn im End zu nutzen, und die Anpassung der Geschirrfarben erwarten.",
+            "ja": "オンラインコミュニティはハッピーガストに肯定的に反応しており、プレイヤーはその飛行能力や建築補助の可能性について議論し、エンドで使うのを楽しみにし、ハーネスのカラーカスタマイズを期待しています。",
+            "ru": "Онлайн-сообщество положительно отреагировало на Счастливого Гаста, игроки обсуждают его возможности полёта и потенциал помощи в строительстве, с нетерпением ждут использования в Энде и ожидают настройки цвета упряжи.",
+            "pt": "A comunidade online reagiu positivamente ao Fantasma Feliz, com jogadores discutindo suas capacidades de voo e potencial de assistência na construção, ansiosos para usá-lo no End e antecipando a personalização da cor do arnês.",
+            "ar": "لقد تفاعل المجتمع عبر الإنترنت بشكل إيجابي مع الشبح السعيد، حيث ناقش اللاعبون قدراته على الطيران وإمكانيات مساعدته في البناء، ويتطلعون إلى استخدامه في النهاية ويتوقعون تخصيص لون الحزام.",
+            "ko": "온라인 커뮤니티는 행복한 가스트에 긍정적으로 반응했으며, 플레이어들은 비행 능력과 건축 보조 가능성에 대해 논의하고, 엔드에서 사용하기를 기대하며 마구 색상 커스터마이징을 기다리고 있습니다."
+          })}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section alt-bg">
+      <div class="container">
+        <h2>{t({
+          "zh-cn": "常见问题",
+          "en": "Frequently Asked Questions",
+          "es": "Preguntas frecuentes",
+          "fr": "Questions fréquentes",
+          "de": "Häufig gestellte Fragen",
+          "ja": "よくある質問",
+          "ru": "Часто задаваемые вопросы",
+          "pt": "Perguntas frequentes",
+          "ar": "الأسئلة الشائعة",
+          "ko": "자주 묻는 질문"
+        })}</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>{t({
+              "zh-cn": "快乐恶魂会攻击玩家吗？",
+              "en": "Will the Happy Ghast attack players?",
+              "es": "¿El Fantasma Feliz atacará a los jugadores?",
+              "fr": "Le Fantôme Joyeux attaquera-t-il les joueurs ?",
+              "de": "Wird der Fröhliche Ghast Spieler angreifen?",
+              "ja": "ハッピーガストはプレイヤーを攻撃しますか？",
+              "ru": "Будет ли Счастливый Гаст атаковать игроков?",
+              "pt": "O Fantasma Feliz atacará os jogadores?",
+              "ar": "هل سيهاجم الشبح السعيد اللاعبين؟",
+              "ko": "행복한 가스트가 플레이어를 공격하나요?"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "不会，与地狱中的传统恶魂不同，快乐恶魂是完全友好的生物，不会对玩家发起攻击。",
+              "en": "No, unlike traditional Ghasts in the Nether, the Happy Ghast is a completely friendly mob and won’t attack players.",
+              "es": "No, a diferencia de los Ghasts tradicionales del Nether, el Fantasma Feliz es una criatura completamente amigable y no atacará a los jugadores.",
+              "fr": "Non, contrairement aux Ghasts traditionnels du Nether, le Fantôme Joyeux est une créature totalement amicale et n’attaquera pas les joueurs.",
+              "de": "Nein, im Gegensatz zu den traditionellen Ghasts im Nether ist der Fröhliche Ghast ein völlig freundlicher Mob und wird Spieler nicht angreifen.",
+              "ja": "いいえ、ネザーの伝統的なガストとは異なり、ハッピーガストは完全に友好的なモブで、プレイヤーを攻撃しません。",
+              "ru": "Нет, в отличие от традиционных Гастов в Незере, Счастливый Гаст — полностью дружелюбный моб и не будет атаковать игроков.",
+              "pt": "Não, ao contrário dos Ghasts tradicionais do Nether, o Fantasma Feliz é um mob completamente amigável e não atacará os jogadores.",
+              "ar": "لا، على عكس الغاست التقليدي في النيثر، الشبح السعيد هو كائن ودود تمامًا ولن يهاجم اللاعبين.",
+              "ko": "아니요, 네더의 전통적인 가스트와 달리 행복한 가스트는 완전히 친근한 몹으로 플레이어를 공격하지 않습니다."
+            })}</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>{t({
+              "zh-cn": "快乐恶魂的飞行速度如何？",
+              "en": "How fast does the Happy Ghast fly?",
+              "es": "¿Qué tan rápido vuela el Fantasma Feliz?",
+              "fr": "À quelle vitesse vole le Fantôme Joyeux ?",
+              "de": "Wie schnell fliegt der Fröhliche Ghast?",
+              "ja": "ハッピーガストの飛行速度はどれくらいですか？",
+              "ru": "Как быстро летает Счастливый Гаст?",
+              "pt": "Quão rápido o Fantasma Feliz voa?",
+              "ar": "ما مدى سرعة طيران الشبح السعيد؟",
+              "ko": "행복한 가스트의 비행 속도는 얼마나 되나요?"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "快乐恶魂的飞行速度较慢，比鞘翅慢，但更容易控制，适合休闲探索和建造。",
+              "en": "The Happy Ghast flies slower than Elytra but is easier to control, making it suitable for casual exploration and building.",
+              "es": "El Fantasma Feliz vuela más lento que los élitros, pero es más fácil de controlar, lo que lo hace adecuado para exploración casual y construcción.",
+              "fr": "Le Fantôme Joyeux vole plus lentement que les élytres, mais il est plus facile à contrôler, ce qui le rend adapté à l’exploration décontractée et à la construction.",
+              "de": "Der Fröhliche Ghast fliegt langsamer als Elytren, ist aber leichter zu steuern, was ihn für entspanntes Erkunden und Bauen geeignet macht.",
+              "ja": "ハッピーガストの飛行速度はエリトラより遅いですが、制御が簡単で、カジュアルな探索や建築に適しています。",
+              "ru": "Счастливый Гаст летает медленнее элитр, но его легче контролировать, что делает его подходящим для спокойного исследования и строительства.",
+              "pt": "O Fantasma Feliz voa mais devagar que os élitros, mas é mais fácil de controlar, tornando-o adequado para exploração casual e construção.",
+              "ar": "يطير الشبح السعيد ببطء أكثر من الأجنحة، لكنه أسهل في التحكم، مما يجعله مناسبًا للاستكشاف العادي والبناء.",
+              "ko": "행복한 가스트는 엘리트라보다 느리게 날지만 제어하기 쉬워 캐주얼 탐험과 건축에 적합합니다."
+            })}</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>{t({
+              "zh-cn": "我可以在快乐恶魂上建造吗？",
+              "en": "Can I build on the Happy Ghast?",
+              "es": "¿Puedo construir sobre el Fantasma Feliz?",
+              "fr": "Puis-je construire sur le Fantôme Joyeux ?",
+              "de": "Kann ich auf dem Fröhlichen Ghast bauen?",
+              "ja": "ハッピーガストの上で建築できますか？",
+              "ru": "Можно ли строить на Счастливом Гасте?",
+              "pt": "Posso construir sobre o Fantasma Feliz?",
+              "ar": "هل يمكنني البناء على الشبح السعيد؟",
+              "ko": "행복한 가스트 위에서 건축할 수 있나요?"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "是的，您可以在骑乘快乐恶魂时进行建造，这使其成为建造高建筑的理想助手。",
+              "en": "Yes, you can build while riding the Happy Ghast, making it an ideal assistant for constructing tall buildings.",
+              "es": "Sí, puedes construir mientras montas el Fantasma Feliz, lo que lo convierte en un asistente ideal para construir edificios altos.",
+              "fr": "Oui, vous pouvez construire en chevauchant le Fantôme Joyeux, ce qui en fait un assistant idéal pour construire de grands bâtiments.",
+              "de": "Ja, Sie können während des Reitens des Fröhlichen Ghasts bauen, was ihn zu einem idealen Helfer beim Bau hoher Gebäude macht.",
+              "ja": "はい、ハッピーガストに乗っている間に建築でき、高い建物を建てるのに理想的な助手となります。",
+              "ru": "Да, вы можете строить, пока едете на Счастливом Гасте, что делает его идеальным помощником для возведения высоких зданий.",
+              "pt": "Sim, você pode construir enquanto monta o Fantasma Feliz, tornando-o um assistente ideal para construir edifícios altos.",
+              "ar": "نعم، يمكنك البناء أثناء ركوب الشبح السعيد، مما يجعله مساعدًا مثاليًا لبناء المباني العالية.",
+              "ko": "네, 행복한 가스트를 타는 동안 건축할 수 있어 높은 건물을 짓는 데 이상적인 조력자가 됩니다."
+            })}</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>{t({
+              "zh-cn": "恶魂幼体需要多长时间成长？",
+              "en": "How long does it take for a Ghastling to grow?",
+              "es": "¿Cuánto tiempo tarda un Ghastling en crecer?",
+              "fr": "Combien de temps faut-il pour qu’un Ghastling grandisse ?",
+              "de": "Wie lange dauert es, bis ein Ghastling wächst?",
+              "ja": "ガストリングが成長するのにどのくらいかかりますか？",
+              "ru": "Сколько времени нужно Гастлингу, чтобы вырасти?",
+              "pt": "Quanto tempo leva para um Ghastling crescer?",
+              "ar": "كم من الوقت يستغرق الغاستلينغ لينمو؟",
+              "ko": "가스트링이 자라는 데 얼마나 걸리나요?"
+            })}</h3>
+            <p>{t({
+              "zh-cn": "恶魂幼体自然成长需要一定时间，但可以通过喂食雪球来加速成长过程。",
+              "en": "A Ghastling takes some time to grow naturally, but you can speed up the process by feeding it snowballs.",
+              "es": "Un Ghastling tarda un tiempo en crecer naturalmente, pero puedes acelerar el proceso alimentándolo con bolas de nieve.",
+              "fr": "Un Ghastling met un certain temps à grandir naturellement, mais vous pouvez accélérer le processus en le nourrissant de boules de neige.",
+              "de": "Ein Ghastling braucht einige Zeit, um natürlich zu wachsen, aber Sie können den Prozess beschleunigen, indem Sie ihn mit Schneebällen füttern.",
+              "ja": "ガストリングは自然に成長するのに時間がかかりますが、雪玉を与えることで成長プロセスを早められます。",
+              "ru": "Гастлингу требуется некоторое время, чтобы вырасти естественным путём, но вы можете ускорить процесс, кормя его снежками.",
+              "pt": "Um Ghastling leva um tempo para crescer naturalmente, mas você pode acelerar o processo alimentando-o com bolas de neve.",
+              "ar": "يستغرق الغاستلينغ بعض الوقت لينمو بشكل طبيعي، لكن يمكنك تسريع العملية بإطعامه كرات الثلج.",
+              "ko": "가스트링은 자연적으로 자라는 데 시간이 걸리지만, 눈덩이를 먹여 성장 과정을 가속할 수 있습니다."
+            })}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>{t({
+          "zh-cn": "准备好体验快乐恶魂了吗？",
+          "en": "Ready to Experience the Happy Ghast?",
+          "es": "¿Listo para experimentar el Fantasma Feliz?",
+          "fr": "Prêt à découvrir le Fantôme Joyeux ?",
+          "de": "Bereit, den Fröhlichen Ghast zu erleben?",
+          "ja": "ハッピーガストを体験する準備はできていますか？",
+          "ru": "Готовы испытать Счастливого Гаста?",
+          "pt": "Pronto para experimentar o Fantasma Feliz?",
+          "ar": "هل أنت مستعد لتجربة الشبح السعيد؟",
+          "ko": "행복한 가스트를 경험할 준비가 되셨나요?"
+        })}</h2>
+        <p>{t({
+          "zh-cn": "敬请期待2025年《我的世界》第二游戏更新，或加入测试版本提前体验这一全新空中伙伴！",
+          "en": "Look forward to Minecraft’s second game update of 2025, or join the test version to experience this new aerial companion early!",
+          "es": "¡Espera con ansias la segunda actualización de Minecraft de 2025, o únete a la versión de prueba para experimentar este nuevo compañero aéreo antes!",
+          "fr": "Attendez avec impatience la deuxième mise à jour de Minecraft 2025, ou rejoignez la version de test pour découvrir ce nouveau compagnon aérien en avant-première !",
+          "de": "Freuen Sie sich auf das zweite Spiel-Update von Minecraft 2025 oder nehmen Sie an der Testversion teil, um diesen neuen Luftbegleiter frühzeitig zu erleben!",
+          "ja": "2025年の『マインクラフト』第2ゲームアップデートを楽しみに待つか、テストバージョンに参加してこの新しい空中仲間を一足先に体験してください！",
+          "ru": "Ждите с нетерпением второго игрового обновления Minecraft 2025 года или присоединяйтесь к тестовой версии, чтобы раньше испытать этого нового воздушного спутника!",
+          "pt": "Aguarde ansiosamente a segunda atualização de jogo do Minecraft de 2025, ou junte-se à versão de teste para experimentar este novo companheiro aéreo antes!",
+          "ar": "ترقب تحديث اللعبة الثاني لماينكرافت 2025، أو انضم إلى النسخة التجريبية لتجربة هذا الرفيق الجوي الجديد مبكرًا!",
+          "ko": "2025년 마인크래프트 두 번째 게임 업데이트를 기대하거나, 테스트 버전에 참여해 이 새로운 공중 동료를 미리 경험해보세요!"
+        })}</p>
+        <a href="#how-to-get" class="start">{t({
+          "zh-cn": "了解如何获得快乐恶魂",
+          "en": "Learn how to get the Happy Ghast",
+          "es": "Aprende cómo obtener el Fantasma Feliz",
+          "fr": "Découvrez comment obtenir le Fantôme Joyeux",
+          "de": "Erfahren Sie, wie Sie den Fröhlichen Ghast bekommen",
+          "ja": "ハッピーガストの入手方法を学ぶ",
+          "ru": "Узнайте, как получить Счастливого Гаста",
+          "pt": "Saiba como obter o Fantasma Feliz",
+          "ar": "تعرف على كيفية الحصول على الشبح السعيد",
+          "ko": "행복한 가스트를 얻는 방법을 알아보세요"
+        })}</a>
+      </div>
+    </section>
+
+  </main>
 </Layout>
 
 <style>
@@ -44,5 +847,157 @@ export const getStaticPaths = () =>
     color: var(--color-base);
     text-decoration: none;
     letter-spacing: 0.05em;
+    margin: 2rem auto;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out, background 0.2s ease;
+  }
+
+  .start:hover {
+    transform: scale(1.05);
+    background: var(--color-theme);
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    color: var(--color-theme);
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-image {
+    margin: 2rem auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Section styling */
+  .section {
+    padding: 4rem 0;
+  }
+
+  .alt-bg {
+    background-color: var(--color-alt);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Content with image */
+  .content-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .content-with-image {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Steps styling */
+  .steps {
+    margin-top: 2rem;
+  }
+
+  .step {
+    display: flex;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+  }
+
+  .step-number {
+    background: var(--color-theme);
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    margin-top: 0;
+    color: var(--color-theme);
+  }
+
+  /* Features grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .feature-card {
+    background: var(--color-base);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+
+  .feature-card h3 {
+    color: var(--color-theme);
+    margin-top: 0;
+  }
+
+  /* FAQ styling */
+  .faq-list {
+    max-width: 800px;
+    margin: 2rem auto;
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-item h3 {
+    color: var(--color-theme);
+    margin-bottom: 0.5rem;
+  }
+
+  /* CTA section */
+  .cta-section {
+    background: var(--color-theme);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    color: white;
+    margin-top: 0;
+  }
+
+  .cta-section .start {
+    background: white;
+    color: var(--color-theme);
+  }
+
+
+  /* Feature list */
+  .features-list li {
+    margin-bottom: 1rem;
   }
 </style>
