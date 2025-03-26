@@ -3,10 +3,6 @@
 .l-header {
 }
 
-.l-main {
-	margin-block-start: var(--sp-l);
-}
-
 .l-content {
 	max-inline-size: 800px;
 	padding-inline: var(--sp-m);

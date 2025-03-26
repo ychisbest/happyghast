@@ -3,19 +3,19 @@
 
 import type { Multilingual } from "@/i18n";
 
-export const SITE_TITLE: string | Multilingual = "happy ghast";
+export const SITE_TITLE: string | Multilingual = "happy ghast information integration site";
 
 export const SITE_DESCRIPTION: string | Multilingual = {
-	en: "A news and information integration site about happy ghast in Minecraft.",
-	es: "Un sitio de integración de noticias e información sobre happy ghast en Minecraft.",
-	fr: "Un site d'intégration de nouvelles et d'informations sur happy ghast dans Minecraft.",
-	de: "Eine Nachrichten- und Informationsintegrationsseite über happy ghast in Minecraft.",
-	ja: "Minecraft の happy ghast に関するニュースと情報を統合したサイト。",
-	"zh-cn": "我的世界中关于 happy ghast 的新闻与信息整合站点。",
-	ru: "Сайт интеграции новостей и информации о happy ghast в Minecraft.",
-	pt: "Um site de integração de notícias e informações sobre happy ghast no Minecraft.",
-	ar: "موقع تكامل الأخبار والمعلومات حول happy ghast في Minecraft.",
-	ko: "Minecraft의 happy ghast에 관한 뉴스 및 정보 통합 사이트.",
+	en: "Explore the latest news, updates, and comprehensive information about happy ghast in Minecraft. Discover tips, strategies, and community insights about this unique mob.",
+	es: "Explora las últimas noticias, actualizaciones e información completa sobre happy ghast en Minecraft. Descubre consejos, estrategias y perspectivas de la comunidad sobre este mob único.",
+	fr: "Découvrez les dernières nouvelles, mises à jour et informations complètes sur happy ghast dans Minecraft. Explorez des conseils, des stratégies et des perspectives communautaires sur ce mob unique.",
+	de: "Entdecken Sie die neuesten Nachrichten, Updates und umfassende Informationen über happy ghast in Minecraft. Finden Sie Tipps, Strategien und Community-Einblicke zu diesem einzigartigen Mob.",
+	ja: "Minecraftのhappy ghastに関する最新ニュース、アップデート、包括的な情報を探索しましょう。このユニークなモブについてのヒント、戦略、コミュニティの洞察を発見できます。",
+	"zh-cn": "探索Minecraft中happy ghast的最新新闻、更新和全面信息。发现关于这个独特生物的技巧、策略和社区见解，提升您的游戏体验和知识。",
+	ru: "Исследуйте последние новости, обновления и исчерпывающую информацию о happy ghast в Minecraft. Откройте для себя советы, стратегии и мнения сообщества об этом уникальном мобе.",
+	pt: "Explore as últimas notícias, atualizações e informações abrangentes sobre happy ghast no Minecraft. Descubra dicas, estratégias e insights da comunidade sobre este mob único.",
+	ar: "استكشف آخر الأخبار والتحديثات والمعلومات الشاملة حول happy ghast في Minecraft. اكتشف النصائح والاستراتيجيات ورؤى المجتمع حول هذا الكائن الفريد.",
+	ko: "마인크래프트의 해피 가스트에 관한 최신 뉴스, 업데이트 및 종합 정보를 탐색하세요. 이 독특한 몹에 대한 팁, 전략 및 커뮤니티 인사이트를 발견하세요."
 };
 
 export const X_ACCOUNT: string | Multilingual = "@psephopaiktes";
