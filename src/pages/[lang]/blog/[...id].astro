@@ -4,7 +4,7 @@ import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("news");
 
   return posts.map((post) => {
     const [lang, ...id] = post.id.split("/");

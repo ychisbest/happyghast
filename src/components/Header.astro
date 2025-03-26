@@ -2,12 +2,9 @@
 // Header & Navigation UI displayed on each page.
 
 import LocaleSelect from "@/components/i18n/LocaleSelect.astro";
-import { Image } from "astro:assets";
 import { useTranslations, type Lang } from "@/i18n";
 import { getRelativeLocaleUrl } from "astro:i18n";
 const t = useTranslations(Astro.currentLocale as Lang);
-
-import AstroImage from "@/assets/astro-logo.svg";
 
 const locale = Astro.currentLocale as Lang;
 
@@ -17,74 +14,57 @@ const isActive = (path: string) =>
 
 <header class="l-header">
   <h1 dir="ltr">
-    <a href={getRelativeLocaleUrl(locale, "/")}>
-      <Image src={AstroImage} alt="Astro" />
-      i18n Starter
-    </a>
+      <a href={getRelativeLocaleUrl(locale, "/")} aria-label="Home" class="flex items-center">
+        <span class="flex items-center gap-2"></span>
+          <div class="relative w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
+            <div class="absolute w-4 h-4 bg-white rounded-full top-2 left-2"></div>
+            <div class="absolute w-4 h-4 bg-white rounded-full top-2 right-2"></div>
+            <div class="absolute w-5 h-2 bg-white rounded-full bottom-2 left-1/2 transform -translate-x-1/2"></div>
+          </div>
+          <span class="text-yellow-500 font-bold text-xl group-hover:text-yellow-600 transition-colors">
+            Happy Ghast
+          </span>
+        </span>
+      </a>
   </h1>
 
   <LocaleSelect />
 
   <nav class="l-content">
     <ul>
-      <li>
-        <a
-          href={getRelativeLocaleUrl(locale, "/setup")}
-          class={isActive("/setup") ? "active" : null}
-        >
-          {t({ ja: "設定", en: "Setup", "zh-cn": "设置", ar: "إعداد" })}
-        </a>
-      </li>
 
       <li>
         <a
-          href={getRelativeLocaleUrl(locale, "/page")}
-          class={isActive("/page") ? "active" : null}
+          href={getRelativeLocaleUrl(locale, "/")}
+          class={isActive("/") ? "active" : null}
         >
           {
             t({
-              ja: "ページの追加",
-              en: "Add Page",
-              "zh-cn": "添加页面",
-              ar: "إضافة صفحة",
+                ja: "ホーム",
+                en: "HOME",
+                "zh-cn": "首页",
+                es: "INICIO",
+                fr: "ACCUEIL",
+                de: "STARTSEITE",
+                ru: "ГЛАВНАЯ",
+                pt: "INÍCIO",
+                ar: "الرئيسية",
+                ko: "홈"
+
             })
           }
         </a>
       </li>
+ 
 
-      <li>
-        <a
-          href={getRelativeLocaleUrl(locale, "/feature")}
-          class={isActive("/feature") ? "active" : null}
-        >
-          {
-            t({
-              ja: "その他の機能",
-              en: "Features",
-              "zh-cn": "特性",
-              ar: "الميزات",
-            })
-          }
-        </a>
-      </li>
-
-      <li class="en-only">
-        <a
-          href={getRelativeLocaleUrl(locale, "/monolingual")}
-          class={isActive("/monolingual") ? "active" : null}
-        >
-          Monolingual
-        </a>
-      </li>
-
-      <li>
+      <!-- <li>
         <a
           href={getRelativeLocaleUrl(locale, "/blog")}
           class={isActive("/blog") ? "active" : null}
         >
           {t({ ja: "ブログ", en: "Blog", "zh-cn": "博客", ar: "مدونة" })}
         </a>
-      </li>
+      </li> -->
 
       <li>
         <a

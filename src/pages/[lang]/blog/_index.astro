@@ -8,7 +8,7 @@ import PageHeadline from "@/components/PageHeadline.astro";
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale);
 
-const posts = (await getCollection("blog"))
+const posts = (await getCollection("news"))
   .filter((post) => post.id.split("/")[0] === locale)
   .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 
