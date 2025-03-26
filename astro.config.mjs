@@ -3,9 +3,13 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import { DEFAULT_LOCALE_SETTING, LOCALES_SETTING } from './src/locales';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-i18n-starter.pages.dev', // Set your site's URL
+  // Set your site's URL
+  site: 'https://happyghast.info',
+
   i18n: {
     defaultLocale: DEFAULT_LOCALE_SETTING,
     locales: Object.keys(LOCALES_SETTING),
@@ -14,6 +18,7 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
+
   integrations: [
     mdx(),
     sitemap({
@@ -27,4 +32,6 @@ export default defineConfig({
       },
     })
   ],
+
+  adapter: cloudflare(),
 });
