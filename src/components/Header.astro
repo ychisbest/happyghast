@@ -20,7 +20,7 @@ const isActive = (path: string) =>
   <h1 dir="ltr">
     <a href={getRelativeLocaleUrl(locale, "/")} aria-label="Home">
       <div class=" flex items-center flex-row">
-        <span class="block w-8 h-8 mr-2">
+        <span class="block w-8 h-8 mr-2 md:w-16 md:h-16 md:mr-6">
           <Image
             src={logoImg}
             alt="Happy Ghast"
@@ -30,7 +30,7 @@ const isActive = (path: string) =>
           />
         </span>
 
-        <span class="block text-2xl font-bold">Happy Ghast</span>
+        <span class="block text-2xl md:text-6xl font-bold">Happy Ghast</span>
       </div>
     </a>
   </h1>
