@@ -53,9 +53,9 @@ const isActive = (path: string) =>
 
   <LocaleSelect />
 
-  <nav class="l-content">
+  <nav class="l-content mb-4">
     <ul>
-      <!-- <li>
+      <li>
         <a
           href={getRelativeLocaleUrl(locale, "/")}
           class={isActive("/") ? "active" : null}
@@ -75,16 +75,25 @@ const isActive = (path: string) =>
             })
           }
         </a>
-      </li> -->
+      </li>
 
-      <!-- <li>
+     <li>
         <a
-          href={getRelativeLocaleUrl(locale, "/blog")}
-          class={isActive("/blog") ? "active" : null}
+          href={getRelativeLocaleUrl(locale, "/news")}
+          class={isActive("/news") ? "active" : null}
         >
-          {t({ ja: "ブログ", en: "Blog", "zh-cn": "博客", ar: "مدونة" })}
+          {t({ "zh-cn": "新闻",
+            en: "NEWS",
+            es: "NOTICIAS",
+            fr: "ACTUALITÉS",
+            de: "NACHRICHTEN",
+            ja: "ニュース",
+            ru: "НОВОСТИ",
+            pt: "NOTÍCIAS",
+            ar: "الأخبار",
+            ko: "뉴스" })}
         </a>
-      </li> -->
+      </li>
 
       <!-- <li>
         <a

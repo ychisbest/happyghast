@@ -13,10 +13,16 @@ const posts = (await getCollection("news"))
   .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 
 const title = t({
-  ja: "ブログ",
-  en: "Blog",
-  "zh-cn": "博客",
-  ar: "مدونة",
+  en: "News",
+  es: "Noticias",
+  fr: "Actualités",
+  de: "Nachrichten",
+  ja: "ニュース",
+  "zh-cn": "新闻",
+  ru: "Новости",
+  pt: "Notícias",
+  ar: "أخبار",
+  ko: "뉴스"
 });
 
 export const getStaticPaths = () =>
@@ -31,22 +37,18 @@ export const getStaticPaths = () =>
   <p>
     {
       t({
-        ja: "ブログやニュースコンテンツを管理したい場合のサンプルです。Astroのコンテンツコレクションを利用しています。",
-        en: "A sample for managing blog or news content. It uses Astro's content collection.",
-        "zh-cn": "用于管理博客或新闻内容的示例。它使用了Astro的内容集合。",
-        ar: "عينة لإدارة محتوى المدونة أو الأخبار. يستخدم مجموعة محتويات Astro.",
+        en: "Latest news from Minecraft Happy Ghast",
+        es: "Últimas noticias de Minecraft Happy Ghast",
+        fr: "Dernières actualités de Minecraft Happy Ghast",
+        de: "Neueste Nachrichten von Minecraft Happy Ghast",
+        ja: "Minecraft Happy Ghastの最新ニュース",
+        "zh-cn": "Minecraft Happy Ghast的最新动态",
+        ru: "Последние новости Minecraft Happy Ghast",
+        pt: "Últimas notícias do Minecraft Happy Ghast",
+        ar: "آخر أخبار Minecraft Happy Ghast",
+        ko: "Minecraft Happy Ghast의 최신 소식"
       })
     }
-  </p>
-
-  <p>
-    <a
-      href={`https://docs.astro.build/${Astro.currentLocale}/guides/content-collections/`}
-      target="_blank"
-    >
-      Content Collection | Astro Docs
-      <span class="material-icons-sharp dir"> open_in_new </span>
-    </a>
   </p>
 
   <ul>
@@ -55,7 +57,7 @@ export const getStaticPaths = () =>
         const [, ...id] = post.id.split("/");
         return (
           <li>
-            <a href={`/${locale}/blog/${id.join("/")}/`}>
+            <a href={`/${locale}/news/${id.join("/")}/`}>
               {post.data.cover && (
                 <Image src={post.data.cover} alt={post.data.title} />
               )}
