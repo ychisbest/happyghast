@@ -46,7 +46,7 @@ def callai(prompt,language):
     return call_gemini_api(prompt)
 
 # 支持的语言文件夹
-LANGUAGES = ['es', 'fr', 'de', 'ja', 'zh-cn', 'ru', 'pt', 'ar', 'ko']
+LANGUAGES = ['es', 'fr', 'de', 'ja', 'en', 'ru', 'pt', 'ar', 'ko']
 
 # 获取当前目录所有 .mdx 文件
 def get_mdx_files():
