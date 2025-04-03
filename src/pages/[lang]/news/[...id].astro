@@ -22,7 +22,9 @@ const title = post.data.title;
 <Layout {title}>
   {
     post.data.cover && (
-      <Image src={post.data.cover} alt={post.data.title} class="cover" />
+      <div class=" mt-10">
+        <Image src={post.data.cover} alt={post.data.title} class="cover" />
+      </div>
     )
   }
 

@@ -3,6 +3,38 @@ import requests
 import os
 import traceback
 
+def call_openai_api(prompt):
+    url = "https://ark.cn-beijing.volces.com/api/v3/chat/completions"
+    api_key="d9b9ca11-7273-4b7e-a8e6-a1518a5c02b4"
+    model="deepseek-v3-250324"
+
+    
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    
+    data = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": """
+             - reply in english
+             - everything is for SEO
+             """},
+            {"role": "user", "content": prompt}
+            ],
+        "temperature": 0.7
+    }
+    
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()
+
+        return response.json()['choices'][0]['message']['content']
+    except requests.exceptions.RequestException as e:
+        print(f"Error calling OpenAI API: {e}")
+        return None
+
 def call_gemini_api(prompt):
     url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-exp-03-25:generateContent"
     api_key = "AIzaSyCcmhi5dWdx3iOVOMsQ0_NVoBarZlrR6NQ"
@@ -41,9 +73,11 @@ def callai(prompt,language):
     # 示例：请替换为你实际的 AI 调用逻辑
     prompt= f"""
 你是我Astro博客的翻译机器,你需要将我的mdx文件翻译成多国语言,现在将以下内容翻译成 {language} 语言,切记,只回复翻译结果,任何多余的内容都会导致程序出错,请务必只返回结果:
-
-{prompt}"""
-    return call_gemini_api(prompt)
+```
+{prompt}
+```
+"""
+    return call_openai_api(prompt)
 
 # 支持的语言文件夹
 LANGUAGES = ['es', 'fr', 'de', 'ja', 'en', 'ru', 'pt', 'ar', 'ko']
@@ -93,7 +127,7 @@ def translate_mdx_files():
 
         for lang in LANGUAGES:
             try:
-                prompt = f"请将以下内容翻译成 {lang}：\n{content}"
+                prompt = content
                 translated = callai(prompt, lang)
                 translated = translated.replace('```mdx', '').replace('```', '')
                 write_translated_file(lang, mdx_file, translated)

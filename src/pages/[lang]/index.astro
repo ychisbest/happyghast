@@ -1,6 +1,7 @@
 ---
 import { LOCALES, useTranslations, type Lang } from "@/i18n";
 import Layout from "@/layouts/Base.astro";
+import NewsComponets from "@/components/News.astro";
 const t = useTranslations(Astro.currentLocale as Lang);
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -216,7 +217,9 @@ import harnessImg from "@/assets/ghast-harness.png";
             </p>
           </div>
 
-          <div class="image">
+          <div
+            class="image animate-bounce animate-infinite animate-duration-[5000ms]"
+          >
             <Image
               src={happyGhastImg}
               alt="快乐恶魂的近照，展示其友好的笑脸"
@@ -301,13 +304,17 @@ import harnessImg from "@/assets/ghast-harness.png";
                   })
                 }
               </p>
-              <Image
-                src={driedGhastImg}
-                alt="干燥恶魂方块在灵魂沙谷中的样子"
-                width={300}
-                height={200}
-                loading="lazy"
-              />
+              <div
+                class="animate-shake animate-infinite animate-duration-[10000ms]"
+              >
+                <Image
+                  src={driedGhastImg}
+                  alt="干燥恶魂方块在灵魂沙谷中的样子"
+                  width={300}
+                  height={200}
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
 
@@ -983,61 +990,7 @@ import harnessImg from "@/assets/ghast-harness.png";
       </div>
     </section>
 
-    <section class="cta-section rounded-xl">
-      <div class="container">
-        <h2>
-          {
-            t({
-              "zh-cn": "准备好体验快乐恶魂了吗？",
-              en: "Ready to Experience the Happy Ghast?",
-              es: "¿Listo para experimentar el Fantasma Feliz?",
-              fr: "Prêt à découvrir le Fantôme Joyeux ?",
-              de: "Bereit, den Fröhlichen Ghast zu erleben?",
-              ja: "ハッピーガストを体験する準備はできていますか？",
-              ru: "Готовы испытать Счастливого Гаста?",
-              pt: "Pronto para experimentar o Fantasma Feliz?",
-              ar: "هل أنت مستعد لتجربة الشبح السعيد؟",
-              ko: "행복한 가스트를 경험할 준비가 되셨나요?",
-            })
-          }
-        </h2>
-        <p>
-          {
-            t({
-              "zh-cn":
-                "敬请期待2025年《我的世界》第二游戏更新，或加入测试版本提前体验这一全新空中伙伴！",
-              en: "Look forward to Minecraft’s second game update of 2025, or join the test version to experience this new aerial companion early!",
-              es: "¡Espera con ansias la segunda actualización de Minecraft de 2025, o únete a la versión de prueba para experimentar este nuevo compañero aéreo antes!",
-              fr: "Attendez avec impatience la deuxième mise à jour de Minecraft 2025, ou rejoignez la version de test pour découvrir ce nouveau compagnon aérien en avant-première !",
-              de: "Freuen Sie sich auf das zweite Spiel-Update von Minecraft 2025 oder nehmen Sie an der Testversion teil, um diesen neuen Luftbegleiter frühzeitig zu erleben!",
-              ja: "2025年の『マインクラフト』第2ゲームアップデートを楽しみに待つか、テストバージョンに参加してこの新しい空中仲間を一足先に体験してください！",
-              ru: "Ждите с нетерпением второго игрового обновления Minecraft 2025 года или присоединяйтесь к тестовой версии, чтобы раньше испытать этого нового воздушного спутника!",
-              pt: "Aguarde ansiosamente a segunda atualização de jogo do Minecraft de 2025, ou junte-se à versão de teste para experimentar este novo companheiro aéreo antes!",
-              ar: "ترقب تحديث اللعبة الثاني لماينكرافت 2025، أو انضم إلى النسخة التجريبية لتجربة هذا الرفيق الجوي الجديد مبكرًا!",
-              ko: "2025년 마인크래프트 두 번째 게임 업데이트를 기대하거나, 테스트 버전에 참여해 이 새로운 공중 동료를 미리 경험해보세요!",
-            })
-          }
-        </p>
-        <a href="#how-to-get" class="start"
-          >{
-            t({
-              "zh-cn": "了解如何获得快乐恶魂",
-              en: "Learn how to get the Happy Ghast",
-              es: "Aprende cómo obtener el Fantasma Feliz",
-              fr: "Découvrez comment obtenir le Fantôme Joyeux",
-              de: "Erfahren Sie, wie Sie den Fröhlichen Ghast bekommen",
-              ja: "ハッピーガストの入手方法を学ぶ",
-              ru: "Узнайте, как получить Счастливого Гаста",
-              pt: "Saiba como obter o Fantasma Feliz",
-              ar: "تعرف على كيفية الحصول على الشبح السعيد",
-              ko: "행복한 가스트를 얻는 방법을 알아보세요",
-            })
-          }</a
-        >
-      </div>
-    </section>
-
-  
+    <NewsComponets />
   </main>
 </Layout>
 
