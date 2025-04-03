@@ -5,6 +5,8 @@ import NewsComponets from "@/components/News.astro";
 const t = useTranslations(Astro.currentLocale as Lang);
 import { getRelativeLocaleUrl } from "astro:i18n";
 
+const News=NewsComponets as any;
+
 import { Image } from "astro:assets";
 
 export const getStaticPaths = () =>
@@ -990,7 +992,7 @@ import harnessImg from "@/assets/ghast-harness.png";
       </div>
     </section>
 
-    <NewsComponets />
+    <News />
   </main>
 </Layout>
 
