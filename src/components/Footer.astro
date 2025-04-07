@@ -17,9 +17,29 @@ import LocalesHomeList from "@/components/i18n/LocalesHomeList.astro";
     <LocalesHomeList />
   </ul>
 
-  <a class="copy" href="https://gameoftruelove.com" target="_blank" dir="ltr">
+  <a class="copy" href="https://silksong.info" target="_blank" dir="ltr">
     game of true love
   </a>
+
+  <div class="terms">
+    <a href="/terms" target="_blank">Terms</a>
+    <span>·</span>
+    <a href="/privacy" target="_blank">Privacy</a>
+  </div>
+
+  <style>
+    .terms {
+      margin-block-start: var(--sp-m);
+      opacity: 0.8;
+    }
+    .terms a {
+      padding: 0 0.5em;
+    }
+    .terms span {
+      opacity: 0.5;
+    }
+  </style>
+
   <a class="copy" href="https://happyghast.info/" target="_blank" dir="ltr">
     © happyghast.info {new Date().getFullYear()}.
   </a>
