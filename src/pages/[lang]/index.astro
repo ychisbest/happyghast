@@ -5,7 +5,7 @@ import NewsComponets from "@/components/News.astro";
 const t = useTranslations(Astro.currentLocale as Lang);
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-const News=NewsComponets as any;
+const News = NewsComponets as any;
 
 import { Image } from "astro:assets";
 
@@ -70,6 +70,96 @@ import harnessImg from "@/assets/ghast-harness.png";
           }</a
         >
       </div>
+    </section>
+
+    <section class="flip-card-section">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <p>
+              {
+                t({
+                  "zh-cn": "快乐恶魂发布了吗?",
+                  en: "Has the Happy Ghast been released?",
+                  es: "¿Se ha lanzado el Fantasma Feliz?",
+                  fr: "Le Fantôme Joyeux a-t-il été publié?",
+                  de: "Wurde der Fröhliche Ghast veröffentlicht?",
+                  ja: "ハッピーガストはリリースされましたか?",
+                  ru: "Выпущен ли Счастливый Гаст?",
+                  pt: "O Fantasma Feliz foi lançado?",
+                  ar: "هل تم إصدار الشبح السعيد؟",
+                  ko: "행복한 가스트가 출시되었나요?"
+                })
+              }
+            </p>
+          </div>
+          <div class="flip-card-back">
+            <p>
+              {
+                t({
+                  "zh-cn": "快乐恶魂已经发布了",
+                  en: "The Happy Ghast has been released",
+                  es: "El Fantasma Feliz ya ha sido lanzado",
+                  fr: "Le Fantôme Joyeux a été publié",
+                  de: "Der Fröhliche Ghast wurde veröffentlicht",
+                  ja: "ハッピーガストはすでにリリースされています",
+                  ru: "Счастливый Гаст уже выпущен",
+                  pt: "O Fantasma Feliz já foi lançado",
+                  ar: "تم إصدار الشبح السعيد بالفعل",
+                  ko: "행복한 가스트가 이미 출시되었습니다"
+                })
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+      <style>
+        .flip-card-section {
+          display: flex;
+          justify-content: center;
+          margin: 2rem 0;
+        }
+        .flip-card {
+          font-size: 1.2rem;
+          margin: 10rem 0rem;
+          background-color: transparent;
+          width: 400px;
+          height: 200px;
+          perspective: 1000px;
+          cursor: pointer;
+        }
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+          transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+        }
+        .flip-card-front {
+          background-color: #f1f1f1;
+          color: black;
+        }
+        .flip-card-back {
+          background-color: #4CAF50;
+          color: white;
+          transform: rotateY(180deg);
+        }
+      </style>
     </section>
 
     <section id="summary" class="section">
