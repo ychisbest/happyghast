@@ -72,11 +72,21 @@ import harnessImg from "@/assets/ghast-harness.png";
       </div>
     </section>
 
-    <section class="flip-card-section">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <p>
+    <section class="flex justify-center mt-12">
+      <div
+        id="flipCard"
+        class="relative w-80 h-52 cursor-pointer group perspective"
+        onclick="toggleFlip()"
+      >
+        <div
+          id="flipInner"
+          class="relative w-full h-full transition-transform duration-700 ease-in-out transform-style-preserve-3d group-hover:scale-105"
+        >
+          <!-- Front Face -->
+          <div
+            class="absolute w-full h-full flex flex-col items-center justify-center p-6 text-center rounded-xl shadow-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-blue-500 text-white backface-hidden"
+          >
+            <p class="text-2xl font-medium mb-4">
               {
                 t({
                   "zh-cn": "快乐恶魂发布了吗?",
@@ -88,77 +98,103 @@ import harnessImg from "@/assets/ghast-harness.png";
                   ru: "Выпущен ли Счастливый Гаст?",
                   pt: "O Fantasma Feliz foi lançado?",
                   ar: "هل تم إصدار الشبح السعيد؟",
-                  ko: "행복한 가스트가 출시되었나요?"
+                  ko: "행복한 가스트가 출시되었나요?",
+                })
+              }
+            </p>
+            <p class="text-sm font-light text-indigo-100">
+              {
+                t({
+                  "zh-cn": "(点击卡片查看答案)",
+                  en: "(Click card to reveal)",
+                  es: "(Haz clic en la tarjeta para revelar)",
+                  fr: "(Cliquez sur la carte pour révéler)",
+                  de: "(Karte anklicken zum Aufdecken)",
+                  ja: "（カードをクリックして表示）",
+                  ru: "(Нажмите на карту, чтобы узнать)",
+                  pt: "(Clique no cartão para revelar)",
+                  ar: "(انقر على البطاقة للكشف)",
+                  ko: "(카드를 클릭하여 확인)",
                 })
               }
             </p>
           </div>
-          <div class="flip-card-back">
-            <p>
+    
+          <!-- Back Face -->
+          <div
+            class="absolute w-full h-full flex flex-col items-center justify-center p-6 text-center rounded-xl shadow-xl bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 text-white backface-hidden transform rotate-y-180"
+          >
+            <p class="text-xl font-semibold">
               {
                 t({
-                  "zh-cn": "快乐恶魂已经发布了",
-                  en: "The Happy Ghast has been released",
-                  es: "El Fantasma Feliz ya ha sido lanzado",
-                  fr: "Le Fantôme Joyeux a été publié",
-                  de: "Der Fröhliche Ghast wurde veröffentlicht",
-                  ja: "ハッピーガストはすでにリリースされています",
-                  ru: "Счастливый Гаст уже выпущен",
-                  pt: "O Fantasma Feliz já foi lançado",
-                  ar: "تم إصدار الشبح السعيد بالفعل",
-                  ko: "행복한 가스트가 이미 출시되었습니다"
+                  "zh-cn": "已经发布！快乐恶魂现已在《我的世界》基岩版预览版1.21.80.25中上线。",
+                  en: "Released! The Happy Ghast is now available in Minecraft Bedrock Preview 1.21.80.25.",
+                  es: "¡Lanzado! El Fantasma Feliz ya está disponible en Minecraft Bedrock Preview 1.21.80.25.",
+                  fr: "Publié ! Le Fantôme Joyeux est désormais disponible dans Minecraft Bedrock Preview 1.21.80.25.",
+                  de: "Veröffentlicht! Der Fröhliche Ghast ist jetzt in Minecraft Bedrock Preview 1.21.80.25 verfügbar.",
+                  ja: "リリースされました！ハッピーガストはMinecraft Bedrock Preview 1.21.80.25で利用可能です。",
+                  ru: "Выпущен! Счастливый Гаст теперь доступен в Minecraft Bedrock Preview 1.21.80.25.",
+                  pt: "Lançado! O Fantasma Feliz já está disponível no Minecraft Bedrock Preview 1.21.80.25.",
+                  ar: "تم الإصدار! الشبح السعيد متاح الآن في Minecraft Bedrock Preview 1.21.80.25.",
+                  ko: "출시되었습니다! 행복한 가스트는 이제 Minecraft Bedrock Preview 1.21.80.25에서 이용할 수 있습니다.",
                 })
               }
             </p>
           </div>
         </div>
       </div>
-      <style>
-        .flip-card-section {
-          display: flex;
-          justify-content: center;
-          margin: 2rem 0;
+    
+      <script is:inline>
+        let flipped = false;
+        const flipCardElement = document.getElementById("flipCard"); // Get the card element
+        const innerElement = document.getElementById("flipInner");
+    
+        function toggleFlip() {
+          flipped = !flipped;
+          if (flipped) {
+            innerElement.style.transform = "rotateY(180deg)";
+          } else {
+            innerElement.style.transform = "rotateY(0deg)";
+          }
         }
-        .flip-card {
-          font-size: 1.2rem;
-          margin: 10rem 0rem;
-          background-color: transparent;
-          width: 400px;
-          height: 200px;
-          perspective: 1000px;
-          cursor: pointer;
+    
+        // Optional: Add keyboard accessibility
+        if (flipCardElement) {
+            flipCardElement.setAttribute('tabindex', '0'); // Make it focusable
+            flipCardElement.addEventListener('keydown', (event) => {
+                // Trigger flip on Enter or Space key press
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault(); // Prevent default space scroll
+                    toggleFlip();
+                }
+            });
         }
-        .flip-card-inner {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          text-align: center;
-          transition: transform 0.6s;
+      </script>
+    
+      <style is:global>
+        .perspective {
+          perspective: 1200px;
+        }
+        .transform-style-preserve-3d {
           transform-style: preserve-3d;
         }
-        .flip-card:hover .flip-card-inner {
-          transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          -webkit-backface-visibility: hidden;
+        .backface-hidden {
           backface-visibility: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 8px;
+          -webkit-backface-visibility: hidden; /* Safari */
         }
-        .flip-card-front {
-          background-color: #f1f1f1;
-          color: black;
-        }
-        .flip-card-back {
-          background-color: #4CAF50;
-          color: white;
+        .rotate-y-180 {
           transform: rotateY(180deg);
         }
+        /* Style for focus outline for accessibility */
+        #flipCard:focus {
+            outline: none; /* Remove default */
+        }
+        #flipCard:focus-visible > #flipInner {
+             outline: 2px solid #60a5fa; /* blue-400 */
+             outline-offset: 4px;
+             border-radius: 0.75rem; /* Match card rounding (rounded-xl) */
+        }
+    
       </style>
     </section>
 
