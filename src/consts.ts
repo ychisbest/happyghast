@@ -3,6 +3,8 @@
 
 import type { Multilingual } from "@/i18n";
 
+export const SITE_URL: string = "https://happyghast.info";
+
 export const SITE_TITLE: string | Multilingual = "happy ghast information integration site";
 
 export const SITE_DESCRIPTION: string | Multilingual = {

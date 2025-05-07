@@ -1,0 +1,26 @@
+# Happy Ghast Info
+
+> 您的 Minecraft 中关于全新友善生物“快乐的恶灵” (Happy Ghast) 的终极资源站。了解如何获取它、它的特性、最新更新以及更多关于这个 2025 年第二次游戏更新中加入的飞行伙伴的信息。
+
+## 关于快乐的恶灵 (Happy Ghast)
+- [快乐的恶灵是什么？](https://happyghast.info/about-happy-ghast): 详细介绍这个 Minecraft 中的新友善生物。
+- [如何找到干燥的恶灵 (Dried Ghast)](https://happyghast.info/news/how-to-find-a-dried-ghast): 获取快乐恶灵的第一步指南。
+
+## 如何获取快乐的恶灵
+- [获取指南](https://happyghast.info/how-to-get): 从找到干燥的恶灵到将其培育成快乐的恶灵的完整步骤。
+- [干燥恶灵的合成配方](https://happyghast.info/news/dried-ghast-crafting-recipe): 了解如何合成获取快乐恶灵的关键物品。
+- [重生与成长](https://happyghast.info/rehydration-growth): 关于如何将干燥的恶灵重生为恶灵幼崽 (Ghastling) 并喂养它长大的信息。
+
+## 特性与用途
+- [快乐恶灵的特性](https://happyghast.info/features): 探索快乐恶灵的飞行能力、多人骑乘和建筑辅助等功能。
+- [如何在游戏中使用](https://happyghast.info/uses): 关于如何在您的 Minecraft 世界中有效利用快乐恶灵的技巧。
+
+## 更新与新闻
+- [快乐恶灵现已到来！](https://happyghast.info/news/happy-ghast-comming-now): 关于快乐恶灵最新动态和发布的官方新闻。
+- [Bedrock 版预览动态](https://happyghast.info/news/bedrock-preview-updates): (如果 `happy-ghast-comming-now.mdx` 也涵盖了预览版信息，可以考虑合并或调整此链接) 追踪最新的 Bedrock 版本预览信息。
+- [如何在 Minecraft 中开启“鲜活视觉”效果](https://happyghast.info/news/how-to-turn-on-vibrant-visuals-on-minecraft): 启用游戏更新中的“鲜活视觉”效果指南。
+- [更多新闻](https://happyghast.info/news): 访问新闻主页获取所有最新文章。
+
+## 社区
+- [常见问题 (FAQ)](https://happyghast.info/faq): 关于快乐恶灵的常见问题与解答。
+- [社区反馈](https://happyghast.info/community-feedback): 查看其他玩家对快乐恶灵的看法。

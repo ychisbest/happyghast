@@ -7,10 +7,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 import cloudflare from '@astrojs/cloudflare';
 
+import { SITE_URL } from './src/consts';
+
 // https://astro.build/config
 export default defineConfig({
   // Set your site's URL
-  site: 'https://happyghast.info',
+  site: SITE_URL,
 
   i18n: {
     defaultLocale: DEFAULT_LOCALE_SETTING,
