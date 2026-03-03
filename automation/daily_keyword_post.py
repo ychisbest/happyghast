@@ -200,7 +200,7 @@ cover: "../happy-ghast-comming-now.png"
 - Keyword: **{kw}**
 - Updated: **{date}**
 
-## {t["guide"]}
+## {t["guide"].format(kw=kw)}
 1. Confirm your game edition (Java or Bedrock).
 2. Verify you are on released versions that include Happy Ghast content.
 3. Follow the shortest in-game path relevant to this query.
