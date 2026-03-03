@@ -1,3 +1,11 @@
 {
-  "used": []
+  "used": [
+    {
+      "keyword": "happy ghast",
+      "slug": "happy-ghast",
+      "intent": "Informational, Transactional",
+      "volume": "27100",
+      "used_at_utc": "2026-03-03T08:50:14.885482+00:00"
+    }
+  ]
 }
