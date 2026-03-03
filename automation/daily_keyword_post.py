@@ -127,15 +127,33 @@ def load_used():
 def save_used(data):
     USED_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
+def _to_float(v, default=0.0):
+    try:
+        return float(v)
+    except Exception:
+        return default
+
 def pick_keyword():
     used = load_used()
     used_set = {x["keyword"] for x in used.get("used", [])}
     rows = list(csv.DictReader(CSV_PATH.open(encoding="utf-8")))
+
+    candidates = []
     for row in rows:
         kw = (row.get("Keyword") or "").strip()
-        if kw and kw not in used_set:
-            return row, used
-    return None, used
+        if not kw or kw in used_set:
+            continue
+        volume = _to_float(row.get("Volume"), 0.0)
+        kd = _to_float(row.get("Keyword Difficulty"), 100.0)
+        # High volume + low KD priority
+        score = volume / (kd + 1.0)
+        candidates.append((score, volume, -kd, kw, row))
+
+    if not candidates:
+        return None, used
+
+    candidates.sort(reverse=True)
+    return candidates[0][4], used
 
 def search_snippets(keyword: str):
     # lightweight search without API key (DuckDuckGo instant answer API)
