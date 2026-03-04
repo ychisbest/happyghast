@@ -6,6 +6,14 @@
       "intent": "Informational, Transactional",
       "volume": "27100",
       "used_at_utc": "2026-03-03T08:50:14.885482+00:00"
+    },
+    {
+      "keyword": "minecraft happy ghast",
+      "slug": "minecraft-happy-ghast",
+      "intent": "Informational",
+      "volume": "5400",
+      "kd": "37",
+      "used_at_utc": "2026-03-04T02:00:09.570304+00:00"
     }
   ]
 }
