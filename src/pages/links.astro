@@ -1,0 +1,63 @@
+---
+import PageHeadline from "@/components/PageHeadline.astro";
+import Article from "@/layouts/Article.astro";
+import partnerLinks from "../../links.json";
+
+type PartnerLink = {
+  html: string;
+};
+
+const links = partnerLinks as PartnerLink[];
+---
+
+<Article
+  title="Partner Links"
+  description="A collection of partner links published on happyghast.info."
+>
+  <PageHeadline title="Partner Links">
+    <p>All partner links assigned to happyghast.info are collected on this page.</p>
+  </PageHeadline>
+
+  <p>
+    This page lists only the external partner links prepared for happyghast.info.
+    The entries below preserve the original HTML snippets used by this project.
+  </p>
+
+  <div class="links-list">
+    {
+      links.map((link, index) => (
+        <article class="link-card">
+          <p class="link-label">Link {index + 1}</p>
+          <div class="link-copy" set:html={link.html} />
+        </article>
+      ))
+    }
+  </div>
+</Article>
+
+<style>
+  .links-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .link-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--color-main) 6%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-main) 12%, transparent);
+  }
+
+  .link-label {
+    margin: 0 0 0.75rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .link-copy :global(a) {
+    font-weight: 700;
+  }
+</style>
